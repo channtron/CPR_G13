@@ -18,7 +18,6 @@ inc_z=(Zfin-Zini)/(N+1);
 
 puntos=[Xini, Yini, Zini, t_ini];
 qlist=[CinematicaInversa([Xini, Yini, Zini])'];
-vtramlist=[0, 0, 0];
 for i=2:N+2
     % puntos incrementales
     wv=puntos(i-1,:);
@@ -51,25 +50,39 @@ for i=2:N+1 %recorremos los puntos interiores
 end
 qdlist(N+2,:)=[0,0,0];
     
-    
-    qd2=((wvf(2)-wv(2))/inc_t+(wv(2)-wvp(2))/inc_t)/2;
-    
-    
-    qd3=((wvf(3)-wv(3))/inc_t+(wv(3)-wvp(3))/inc_t)/2;
+i=1;
+wv=puntos(:,4);
+q=qlist(1,:);
+qd=qdlist(1,:);
+qdd=[0,0,0];
+while wv(i)<=t
+    if wv(i)<t %&& wv(i+1)>t
+        for j=1:3
+            a(j)=qlist(i,j);
+            b(j)=qdlist(i,j);
+            c(j)=3/inc_t^2*(qlist(i+1,j)-qlist(i,j))-(qdlist(i+1,j)+2*qdlist(i,j))/inc_t;
+            d(j)=-2/inc_t^3*(qlist(i+1,j)-qlist(i,j))+(qdlist(i+1,j)+qdlist(i,j))/inc_t^2;
+        end
+        q=a+b*(t-wv(i))+c*(t-wv(i))^2+d*(t-wv(i))^3;
+        qd=b+2*c*(t-wv(i))+3*d*(t-wv(i))^2;
+        qdd=2*c+6*d*(t-wv(i));
+        break
+    else
+        if i>N+1  % nos encontramos en reposo tras finalizar el movimiento
+            q=qlist(N+2,:);
+            qd=qdlist(N+2,:);
+            qdd=[0,0,0];
+            break
+        end
+    end 
+    i= i+1;
+end
 
-% q1=qlist(:,1);
-% q2=qlist(:,2);
-% q3=qlist(:,3);
+q1=q(1);        q2=q(2);        q3=q(3);
 
-%% Metodo Euristico
+qp1=qd(1);      qp2=qd(2);      qp3=qd(3);
 
-qdlist=
-
-q1=0; q2=0; q3=0;
-
-qp1=0; qp2=0; qp3=0;
-
-qpp1=0; qpp2=0; qpp3=0;
+qpp1=qdd(1);    qpp2=qdd(2);    qpp3=qdd(3);
 
 
     % FIN DE INTERPORLACIÓN MEDIANTE POLINOMIOS DE TERCER ORDEN
