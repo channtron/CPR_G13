@@ -50,32 +50,57 @@ for i=2:N+1 %recorremos los puntos interiores
 end
 qdlist(N+2,:)=[0,0,0];
     
-i=1;
+% i=1;
 wv=puntos(:,4);
 q=qlist(1,:);
 qd=qdlist(1,:);
 qdd=[0,0,0];
-while wv(i)<=t
-    if wv(i)<t %&& wv(i+1)>t
-        for j=1:3
-            a(j)=qlist(i,j);
-            b(j)=qdlist(i,j);
-            c(j)=3/inc_t^2*(qlist(i+1,j)-qlist(i,j))-(qdlist(i+1,j)+2*qdlist(i,j))/inc_t;
-            d(j)=-2/inc_t^3*(qlist(i+1,j)-qlist(i,j))+(qdlist(i+1,j)+qdlist(i,j))/inc_t^2;
-        end
-        q=a+b*(t-wv(i))+c*(t-wv(i))^2+d*(t-wv(i))^3;
-        qd=b+2*c*(t-wv(i))+3*d*(t-wv(i))^2;
-        qdd=2*c+6*d*(t-wv(i));
-        break
-    else
-        if i>N+1  % nos encontramos en reposo tras finalizar el movimiento
-            q=qlist(N+2,:);
-            qd=qdlist(N+2,:);
-            qdd=[0,0,0];
+% while wv(i)<=t
+%     if wv(i)<t %&& wv(i+1)>t
+%         for j=1:3
+%             ar(j)=qlist(i,j);
+%             br(j)=qdlist(i,j);
+%             cr(j)=(3/inc_t^2)*(qlist(i+1,j)-qlist(i,j))-(qdlist(i+1,j)+2*qdlist(i,j))/inc_t;
+%             dr(j)=(-2/inc_t^3)*(qlist(i+1,j)-qlist(i,j))+(qdlist(i+1,j)+qdlist(i,j))/inc_t^2;
+%         end
+%         q=ar+br*(t-wv(i))+cr*(t-wv(i))^2+dr*(t-wv(i))^3;
+%         qd=br+2*cr*(t-wv(i))+3*dr*(t-wv(i))^2;
+%         qdd=2*cr+6*dr*(t-wv(i));
+%         break
+%     else
+%         if i>N+1  % nos encontramos en reposo tras finalizar el movimiento
+%             q=qlist(N+2,:);
+%             qd=qdlist(N+2,:);
+%             qdd=[0,0,0];
+%             break
+%         end
+%     end 
+%     i= i+1;
+% end
+if t<=t_ini
+    q=qlist(1,:);
+    qd=qdlist(1,:);
+    qdd=[0,0,0];
+elseif t_ini<t && t<t_ini+T
+    for i=1:N+1
+        if t<wv(i)
+            i=i-1;
             break
         end
-    end 
-    i= i+1;
+    end
+    for j=1:3
+        ar(j)=qlist(i,j);
+        br(j)=qdlist(i,j);
+        cr(j)=(3/inc_t^2)*(qlist(i+1,j)-qlist(i,j))-(qdlist(i+1,j)+2*qdlist(i,j))/inc_t;
+        dr(j)=(-2/inc_t^3)*(qlist(i+1,j)-qlist(i,j))+(qdlist(i+1,j)+qdlist(i,j))/inc_t^2;
+    end
+    q=ar+br*(t-wv(i))+cr*(t-wv(i))^2+dr*(t-wv(i))^3;
+    qd=br+2*cr*(t-wv(i))+3*dr*(t-wv(i))^2;
+    qdd=2*cr+6*dr*(t-wv(i));
+else
+    q=qlist(N+2,:);
+    qd=qdlist(N+2,:);
+    qdd=[0,0,0];
 end
 
 q1=q(1);        q2=q(2);        q3=q(3);
