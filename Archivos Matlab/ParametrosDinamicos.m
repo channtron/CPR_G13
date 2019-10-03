@@ -196,7 +196,7 @@ PI = sym('pi');
 % Robot ??? (descomentar los que procedan)
   % T1=F1z;
     T1=N1z;
-   %T2=F2z;
+  % T2=F2z;
    T2=N2z;
   % T3=F3z;
    T3=N3z;
@@ -207,7 +207,78 @@ PI = sym('pi');
   T2=simplify(T2);
   T3=simplify(T3);
   
+    %T=M(q)*qdd + V(q,qd) + G(q)
+  
+  %Primera ecuacion
+  M11=diff(T1,qdd1);
+  T1aux=simplify(T1-M11*qdd1);
+  M12=diff(T1aux,qdd2);
+  T1aux=simplify(T1aux-M12*qdd2);
+  M13=diff(T1aux,qdd3);
+  T1aux=simplify(T1aux-M13*qdd3);  
+  G1=diff(T1aux,g)*g;
+  T1aux=simplify(T1aux-G1);  
+  V1=T1aux;
+  
+  %Segunda ecuacion
+  M21=diff(T2,qdd1);    
+  T2aux=simplify(T2-M21*qdd1);
+  M22=diff(T2aux,qdd2);
+  T2aux=simplify(T2aux-M22*qdd2);
+  M23=diff(T2aux,qdd3);
+  T2aux=simplify(T2aux-M23*qdd3);  
+  G2=diff(T2aux,g)*g;
+  T2aux=simplify(T2aux-G2);  
+  V2=T2aux;
+  
+  %Segunda ecuacion
+  M31=diff(T3,qdd1);
+  T3aux=simplify(T3-M31*qdd1);
+  M32=diff(T3aux,qdd2);
+  T3aux=simplify(T3aux-M32*qdd2);
+  M33=diff(T3aux,qdd3);
+  T3aux=simplify(T3aux-M33*qdd3);
+  G3=diff(T3aux,g)*g;
+  T3aux=simplify(T3aux-G3);  
+  V3=T3aux;
+
+  %Simplificamos todos los términos
+  M11=simplify(M11);    M12=simplify(M12);  M13=simplify(M13);
+  M21=simplify(M21);    M22=simplify(M22);  M23=simplify(M23);
+  M31=simplify(M31);    M32=simplify(M32);  M33=simplify(M33);
+  V1=simplify(V1);  V2=simplify(V2);    V3=simplify(V3);
+  G1=simplify(G1);  G2=simplify(G2);    G3=simplify(G3);
+  
+  %Creamos matrices y vectores
+  M=[M11 M12 M13; M21 M22 M23; M31 M32 M33];
+  V=[V1 V2 V3]';
+  G=[G1 G2 G3]';
+  
+  %Metemos la reductora
+  R=diag([R1 R2 R3]);
+  Jm=diag([Jm1 Jm2 Jm3]);
+  Bm=diag([Bm1 Bm2 Bm3]);
+  
+  %Construimos la matrices finales
+  Ma=M+R*R*Jm;      Ma=simplify(Ma);
+  Va=V+R*R*Bm*[qd1;qd2;qd3];        Va=simplify(Va);
+  Ga=G;
+  
+  %Redondeamos
+  Ma=vpa(Ma,5)
+  Va=vpa(Va,5)
+  Ga=vpa(Ga,5)
+  
+  %Ecuación con las matrices ampliadas
+  T=simplify(Ma*[qdd1;qdd2;qdd3]+Va+Ga); 
+  T1=T(1);
+  T2=T(2);
+  T3=T(3);
+  
+  
   %Sacamos los parametros derivando
+  
+  %Eslabón 1
   p_aux1=diff(T1,m1);
   p_aux2=diff(p_aux1,lc1);
   p_m1aa1=diff(p_aux2,lc1)/2; %T1 m1*lc1^2 
@@ -270,5 +341,221 @@ PI = sym('pi');
   
   p_Izz31=diff(T1_aux,Izz3); %T1 Izz3
   T1_aux=simplify(T1_aux-p_Izz31*Izz3);
+  
+  p_Jm11=diff(T1_aux,Jm1);   %T1 Jm1
+  T1_aux=simplify(T1_aux-p_Jm11*Jm1);
+  
+  p_Jm21=diff(T1_aux,Jm2);   %T1 Jm2
+  T1_aux=simplify(T1_aux-p_Jm21*Jm2);
+  
+  p_Jm31=diff(T1_aux,Jm3);   %T1 Jm3
+  T1_aux=simplify(T1_aux-p_Jm31*Jm3);
+  
+  p_Bm11=diff(T1_aux,Bm1);   %T1 Bm1
+  T1_aux=simplify(T1_aux-p_Bm11*Bm1);
+  
+  p_Bm21=diff(T1_aux,Bm2);   %T1 Bm2
+  T1_aux=simplify(T1_aux-p_Bm21*Bm2);
+  
+  p_Bm31=diff(T1_aux,Bm3);   %T1 Bm3
+  T1_aux=simplify(T1_aux-p_Bm31*Bm3);
+  
+  %Vector de los parametros para el eslabón 1
+  p_1=[p_m11, p_m21, p_m31, p_m1a1, p_m2a1, p_m3a1, p_m1aa1, p_m2aa1, p_m3aa1,...
+      p_Ixx11, p_Ixx21, p_Ixx31, p_Iyy11, p_Iyy21, p_Iyy31, p_Izz11, p_Izz21,p_Izz31,...
+      p_Jm11, p_Jm21, p_Jm31, p_Bm11, p_Bm21, p_Bm31];
+  
+ 
+  %Eslabón 2
+  p_aux1=diff(T2,m1);
+  p_aux2=diff(p_aux1,lc1);
+  p_m1aa2=diff(p_aux2,lc1)/2; %T2 m1*lc1^2 
+  T2_aux=simplify(T2-p_m1aa2*m1*lc1^2);
+  
+  p_aux1=diff(T2_aux,m2);
+  p_aux2=diff(p_aux1,lc2);
+  p_m2aa2=diff(p_aux2,lc2)/2; %T2 m2*lc2^2 
+  T2_aux=simplify(T2_aux-p_m2aa2*m2*lc2^2);
+  
+  p_aux1=diff(T2_aux,m3);
+  p_aux2=diff(p_aux1,lc3);
+  p_m3aa2=diff(p_aux2,lc3)/2; %T2 m3*lc3^2 
+  T2_aux=simplify(T2_aux-p_m3aa2*m3*lc3^2);
+  
+  p_aux1=diff(T2_aux,m1);
+  p_m1a2=diff(p_aux1,lc1);  %T2 m1*lc1
+  T2_aux=simplify(T2_aux-p_m1a2*m1*lc1);
+  
+  p_aux1=diff(T2_aux,m2);
+  p_m2a2=diff(p_aux1,lc2);  %T2 m2*lc2
+  T2_aux=simplify(T2_aux-p_m2a2*m2*lc2);
+  
+  p_aux1=diff(T2_aux,m3);
+  p_m3a2=diff(p_aux1,lc3);  %T2 m3*lc3
+  T2_aux=simplify(T2_aux-p_m3a2*m3*lc3);
+  
+  p_m12=diff(T2_aux,m1);     %T2 m1
+  T2_aux=simplify(T2_aux-p_m12*m1);
+  
+  p_m22=diff(T2_aux,m2);     %T2 m2
+  T2_aux=simplify(T2_aux-p_m22*m2);
+  
+  p_m32=diff(T2_aux,m3);     %T2 m3
+  T2_aux=simplify(T2_aux-p_m32*m3);
+  
+  p_Ixx12=diff(T2_aux,Ixx1); %T2 Ixx1
+  T2_aux=simplify(T2_aux-p_Ixx12*Ixx1);
+  
+  p_Ixx22=diff(T2_aux,Ixx2); %T2 Ixx2
+  T2_aux=simplify(T2_aux-p_Ixx22*Ixx2);
+  
+  p_Ixx32=diff(T2_aux,Ixx3); %T2 Ixx3
+  T2_aux=simplify(T2_aux-p_Ixx32*Ixx3);
+  
+  p_Iyy12=diff(T2_aux,Iyy1); %T2 Iyy1
+  T2_aux=simplify(T2_aux-p_Iyy12*Iyy1);
+  
+  p_Iyy22=diff(T2_aux,Iyy2); %T2 Iyy2
+  T2_aux=simplify(T2_aux-p_Iyy22*Iyy2);
+  
+  p_Iyy32=diff(T2_aux,Iyy3); %T2 Iyy3
+  T2_aux=simplify(T2_aux-p_Iyy32*Iyy3);
+  
+  p_Izz12=diff(T2_aux,Izz1); %T2 Izz1
+  T2_aux=simplify(T2_aux-p_Izz12*Izz1);
+  
+  p_Izz22=diff(T2_aux,Izz2); %T2 Izz2
+  T2_aux=simplify(T2_aux-p_Izz22*Izz2);
+  
+  p_Izz32=diff(T2_aux,Izz3); %T2 Izz3
+  T2_aux=simplify(T2_aux-p_Izz32*Izz3);
+  
+  p_Jm12=diff(T2_aux,Jm1);   %T2 Jm1
+  T2_aux=simplify(T2_aux-p_Jm12*Jm1);
+  
+  p_Jm22=diff(T2_aux,Jm2);   %T2 Jm2
+  T2_aux=simplify(T2_aux-p_Jm22*Jm2);
+  
+  p_Jm32=diff(T2_aux,Jm3);   %T2 Jm3
+  T2_aux=simplify(T2_aux-p_Jm32*Jm3);
+  
+  p_Bm12=diff(T2_aux,Bm1);   %T2 Bm1
+  T2_aux=simplify(T2_aux-p_Bm12*Bm1);
+  
+  p_Bm22=diff(T2_aux,Bm2);   %T2 Bm2
+  T2_aux=simplify(T2_aux-p_Bm22*Bm2);
+  
+  p_Bm32=diff(T2_aux,Bm3);   %T2 Bm3
+  T2_aux=simplify(T2_aux-p_Bm32*Bm3);
+  
+  %Vector de los parametros para el eslabón 2
+  p_2=[p_m12, p_m22, p_m32, p_m1a2, p_m2a2, p_m3a2, p_m1aa2, p_m2aa2, p_m3aa2,...
+      p_Ixx12, p_Ixx22, p_Ixx32, p_Iyy12, p_Iyy22, p_Iyy32, p_Izz12, p_Izz22, p_Izz32,...
+      p_Jm12, p_Jm22, p_Jm32, p_Bm12, p_Bm22, p_Bm32];
+  
+  
+  %Eslabón 3
+  p_aux1=diff(T3,m1);
+  p_aux2=diff(p_aux1,lc1);
+  p_m1aa3=diff(p_aux2,lc1)/2; %T3 m1*lc1^2 
+  T3_aux=simplify(T3-p_m1aa3*m1*lc1^2);
+  
+  p_aux1=diff(T3_aux,m2);
+  p_aux2=diff(p_aux1,lc2);
+  p_m2aa3=diff(p_aux2,lc2)/2; %T3 m2*lc2^2 
+  T3_aux=simplify(T3_aux-p_m2aa3*m2*lc2^2);
+  
+  p_aux1=diff(T3_aux,m3);
+  p_aux2=diff(p_aux1,lc3);
+  p_m3aa3=diff(p_aux2,lc3)/2; %T3 m3*lc3^2 
+  T3_aux=simplify(T3_aux-p_m3aa3*m3*lc3^2);
+  
+  p_aux1=diff(T3_aux,m1);
+  p_m1a3=diff(p_aux1,lc1);  %T3 m1*lc1
+  T3_aux=simplify(T3_aux-p_m1a3*m1*lc1);
+  
+  p_aux1=diff(T3_aux,m2);
+  p_m2a3=diff(p_aux1,lc2);  %T3 m2*lc2
+  T3_aux=simplify(T3_aux-p_m2a3*m2*lc2);
+  
+  p_aux1=diff(T3_aux,m3);
+  p_m3a3=diff(p_aux1,lc3);  %T3 m3*lc3
+  T3_aux=simplify(T3_aux-p_m3a3*m3*lc3);
+  
+  p_m13=diff(T3_aux,m1);     %T3 m1
+  T3_aux=simplify(T3_aux-p_m13*m1);
+  
+  p_m23=diff(T3_aux,m2);     %T3 m2
+  T3_aux=simplify(T3_aux-p_m23*m2);
+  
+  p_m33=diff(T3_aux,m3);     %T3 m3
+  T3_aux=simplify(T3_aux-p_m33*m3);
+  
+  p_Ixx13=diff(T3_aux,Ixx1); %T3 Ixx1
+  T3_aux=simplify(T3_aux-p_Ixx13*Ixx1);
+  
+  p_Ixx23=diff(T3_aux,Ixx2); %T3 Ixx2
+  T3_aux=simplify(T3_aux-p_Ixx23*Ixx2);
+  
+  p_Ixx33=diff(T3_aux,Ixx3); %T3 Ixx3
+  T3_aux=simplify(T3_aux-p_Ixx33*Ixx3);
+  
+  p_Iyy13=diff(T3_aux,Iyy1); %T3 Iyy1
+  T3_aux=simplify(T3_aux-p_Iyy13*Iyy1);
+  
+  p_Iyy23=diff(T3_aux,Iyy2); %T3 Iyy2
+  T3_aux=simplify(T3_aux-p_Iyy23*Iyy2);
+  
+  p_Iyy33=diff(T3_aux,Iyy3); %T3 Iyy3
+  T3_aux=simplify(T3_aux-p_Iyy33*Iyy3);
+  
+  p_Izz13=diff(T3_aux,Izz1); %T3 Izz1
+  T3_aux=simplify(T3_aux-p_Izz13*Izz1);
+  
+  p_Izz23=diff(T3_aux,Izz2); %T3 Izz2
+  T3_aux=simplify(T3_aux-p_Izz23*Izz2);
+  
+  p_Izz33=diff(T3_aux,Izz3); %T3 Izz3
+  T3_aux=simplify(T3_aux-p_Izz33*Izz3);
+  
+  p_Jm13=diff(T3_aux,Jm1);   %T3 Jm1
+  T3_aux=simplify(T3_aux-p_Jm13*Jm1);
+  
+  p_Jm23=diff(T3_aux,Jm2);   %T3 Jm2
+  T3_aux=simplify(T3_aux-p_Jm23*Jm2);
+  
+  p_Jm33=diff(T3_aux,Jm3);   %T3 Jm3
+  T3_aux=simplify(T3_aux-p_Jm33*Jm3);
+  
+  p_Bm13=diff(T3_aux,Bm1);   %T3 Bm1
+  T3_aux=simplify(T3_aux-p_Bm13*Bm1);
+  
+  p_Bm23=diff(T3_aux,Bm2);   %T3 Bm2
+  T3_aux=simplify(T3_aux-p_Bm23*Bm2);
+  
+  p_Bm33=diff(T3_aux,Bm3);   %T3 Bm3
+  T3_aux=simplify(T3_aux-p_Bm33*Bm3);
+  
+  %Vector de los parametros para el eslabón 3
+  p_3=[p_m13, p_m23, p_m33, p_m1a3, p_m2a3, p_m3a3, p_m1aa3, p_m2aa3, p_m3aa3,...
+      p_Ixx13, p_Ixx23, p_Ixx33, p_Iyy13, p_Iyy23, p_Iyy33, p_Izz13, p_Izz23,p_Izz33,...
+      p_Jm13, p_Jm23, p_Jm33, p_Bm13, p_Bm23, p_Bm33];
+  
+  
+  %K*R*I=[.....]3x24 * [..]24x1
+  
+  %Formamos la matriz 3x24 con los valores que multiplican a los parámetros a identificar
+  Mult=simplify([p_1;p_2;p_3]);
+  
+  %Formamos el vector con los 24 parámetros
+  Param=[m1; m2; m3; m1*lc1; m2*lc2; m3*lc3; m1*lc1^2; m2*lc2^2; m3*lc3^2; Ixx1; Ixx2; Ixx3;...
+      Iyy1; Iyy2; Iyy3; Izz1; Izz2; Izz3; Jm1; Jm2; Jm3; Bm1; Bm2; Bm3];
+  
+  
+  %Comprobamos que es correcto
+    %Mult*Param - Ma*qdd - Va - Ga=
+    simplify(Mult*Param-T)
+  
+  
   
   
