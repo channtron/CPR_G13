@@ -96,13 +96,6 @@ clear Gamma_numerica;
 %                                                                 (qd1^2*sin(2*q2 + 2*q3))/2, qdd2 + qdd3, 225*qdd3, 225*qd3
 
 
-syms alpha beta
-eqn1 = alpha*((25*qdd1)/32 + (qdd1*cos(2*q2))/2 + (9*qdd1*cos(2*q2 + 2*q3))/32 + (3*qdd1*cos(q3))/4 + (3*qdd1*cos(2*q2 + q3))/4 - (3*qd1*qd3*sin(q3))/4 - (3*qd1*qd2*sin(2*q2 + q3))/2 - (3*qd1*qd3*sin(2*q2 + q3))/4 - qd1*qd2*sin(2*q2) - (9*qd1*qd2*sin(2*q2 + 2*q3))/16 - (9*qd1*qd3*sin(2*q2 + 2*q3))/16) + beta*(qd1*qd3*sin(q3) - (3*qdd1*cos(2*q2 + 2*q3))/4 - qdd1*cos(q3) - qdd1*cos(2*q2 + q3) - (3*qdd1)/4 + 2*qd1*qd2*sin(2*q2 + q3) + qd1*qd3*sin(2*q2 + q3) + (3*qd1*qd2*sin(2*q2 + 2*q3))/2 + (3*qd1*qd3*sin(2*q2 + 2*q3))/2) == qdd1/2 + (qdd1*cos(2*q2 + 2*q3))/2 - qd1*qd2*sin(2*q2 + 2*q3) - qd1*qd3*sin(2*q2 + 2*q3);
-eqn2 = alpha*((25*qdd2)/16 + (9*qdd3)/16 - (3*qd3^2*sin(q3))/4 + (3*qd1^2*sin(2*q2 + q3))/4 + (3*g*cos(q2 + q3))/4 + (qd1^2*sin(2*q2))/2 + g*cos(q2) + (9*qd1^2*sin(2*q2 + 2*q3))/32 + (3*qdd2*cos(q3))/2 + (3*qdd3*cos(q3))/4 - (3*qd2*qd3*sin(q3))/2) + beta*(qd3^2*sin(q3) - (3*qdd3)/2 - (3*qdd2)/2 - qd1^2*sin(2*q2 + q3) - g*cos(q2 + q3) - (3*qd1^2*sin(2*q2 + 2*q3))/4 - 2*qdd2*cos(q3) - qdd3*cos(q3) + 2*qd2*qd3*sin(q3)) == (sin(2*q2 + 2*q3)*qd1^2)/2 + qdd2 + qdd3;
-eqn3 = alpha*((9*qdd2)/16 + (9*qdd3)/16 + (3*qd1^2*sin(q3))/8 + (3*qd2^2*sin(q3))/4 + (3*qd1^2*sin(2*q2 + q3))/8 + (3*g*cos(q2 + q3))/4 + (9*qd1^2*sin(2*q2 + 2*q3))/32 + (3*qdd2*cos(q3))/4) + beta*(- sin(q3)*qd2^2 - (3*qdd2)/2 - (3*qdd3)/2 - (qd1^2*sin(q3))/2 - (qd1^2*sin(2*q2 + q3))/2 - g*cos(q2 + q3) - (3*qd1^2*sin(2*q2 + 2*q3))/4 - qdd2*cos(q3)) == (sin(2*q2 + 2*q3)*qd1^2)/2 + qdd2 + qdd3;
-eqns=[eqn1,eqn2];
-vars=[alpha, beta];
-
 Sigma_red=[Iyy1+2500*Jm1+Iyy2-Izz2-900*Jm2+Iyy3-Izz3 ;Bm1 ;m2-m2*lc2^2-Izz2-900*Jm2+(16/9)*m3*lc3^2+(16/9)*Izz3;...
     m2*lc2-m2*lc2^2-Izz2-900*Jm2;Ixx2-Iyy2+Izz2+900*Jm2;Bm2;m3-(16/9)*m3*lc3^2-(16/9)*Izz3;...
     m3*lc3-(4/3)*m3*lc3^2-(4/3)*Izz3;Ixx3-Iyy3+Izz3;Jm3;Bm3];
