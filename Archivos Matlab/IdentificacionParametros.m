@@ -54,7 +54,12 @@ clear Gamma_numerica;
    
    
    
-%Para que se vea bien en pantalla completa   
+%Para que se vea bien en pantalla completa 
+
+%  (qdd1*cos(2*q2 + 2*q3))/2 - (8*qdd1*cos(2*q2))/9 - (7*qdd1)/18 + (16*qd1*qd2*sin(2*q2))/9 - qd1*qd2*sin(2*q2 + 2*q3) - qd1*qd3*sin(2*q2 + 2*q3)
+%                                                        qdd3 - (7*qdd2)/9 - (8*qd1^2*sin(2*q2))/9 - (16*g*cos(q2))/9 + (qd1^2*sin(2*q2 + 2*q3))/2
+%                                                                                                         (sin(2*q2 + 2*q3)*qd1^2)/2 + qdd2 + qdd3
+%
 %     1,         2,        3,                                               4,                                           5,                                           6;...
 %  qdd1, 2500*qdd1, 2500*qd1, qdd1/2 + (qdd1*cos(2*q2))/2 - qd1*qd2*sin(2*q2), 2*qd1*qd2*sin(2*q2) - qdd1*cos(2*q2) - qdd1, (qdd1*(cos(2*q2) + 1))/2 - qd1*qd2*sin(2*q2)...
 %     0,         0,        0,          (sin(2*q2)*qd1^2)/2 + qdd2 + g*cos(q2),      - sin(2*q2)*qd1^2 - 2*qdd2 - g*cos(q2),                   (sin(2*q2)*qd1^2)/2 + qdd2...
@@ -97,3 +102,13 @@ eqn2 = alpha*((25*qdd2)/16 + (9*qdd3)/16 - (3*qd3^2*sin(q3))/4 + (3*qd1^2*sin(2*
 eqn3 = alpha*((9*qdd2)/16 + (9*qdd3)/16 + (3*qd1^2*sin(q3))/8 + (3*qd2^2*sin(q3))/4 + (3*qd1^2*sin(2*q2 + q3))/8 + (3*g*cos(q2 + q3))/4 + (9*qd1^2*sin(2*q2 + 2*q3))/32 + (3*qdd2*cos(q3))/4) + beta*(- sin(q3)*qd2^2 - (3*qdd2)/2 - (3*qdd3)/2 - (qd1^2*sin(q3))/2 - (qd1^2*sin(2*q2 + q3))/2 - g*cos(q2 + q3) - (3*qd1^2*sin(2*q2 + 2*q3))/4 - qdd2*cos(q3)) == (sin(2*q2 + 2*q3)*qd1^2)/2 + qdd2 + qdd3;
 eqns=[eqn1,eqn2];
 vars=[alpha, beta];
+
+Sigma_red=[Iyy1+2500*Jm1+Iyy2-Izz2-900*Jm2+Iyy3-Izz3 ;Bm1 ;m2-m2*lc2^2-Izz2-900*Jm2+(16/9)*m3*lc3^2+(16/9)*Izz3;...
+    m2*lc2-m2*lc2^2-Izz2-900*Jm2;Ixx2-Iyy2+Izz2+900*Jm2;Bm2;m3-(16/9)*m3*lc3^2-(16/9)*Izz3;...
+    m3*lc3-(4/3)*m3*lc3^2-(4/3)*Izz3;Ixx3-Iyy3+Izz3;Jm3;Bm3];
+
+Gamma_red= [  qdd1, 2500*qd1, 0.5*qdd1 + 0.5*qdd1*cos(2.0*q2) - 1.0*qd1*qd2*sin(2.0*q2), 2.0*qd1*qd2*sin(2.0*q2) - 1.0*qdd1*cos(2.0*q2) - 1.0*qdd1, qdd1/2 - 0.5*qdd1*cos(2.0*q2) + qd1*qd2*sin(2.0*q2),       0, 0.78125*qdd1 + 0.75*qdd1*cos(2.0*q2 + q3) + 0.28125*qdd1*cos(2*q2 + 2*q3) + 0.5*qdd1*cos(2.0*q2) + 0.75*qdd1*cos(q3) - 0.75*qd1*qd3*sin(q3) - 1.5*qd1*qd2*sin(2.0*q2 + q3) - 0.75*qd1*qd3*sin(2.0*q2 + q3) - 0.5625*qd1*qd2*sin(2*q2 + 2*q3) - 0.5625*qd1*qd3*sin(2*q2 + 2*q3) - 1.0*qd1*qd2*sin(2.0*q2), qd1*qd3*sin(q3) - 1.0*qdd1*cos(2.0*q2 + q3) - 0.75*qdd1*cos(2*q2 + 2*q3) - 1.0*qdd1*cos(q3) - 0.75*qdd1 + 2.0*qd1*qd2*sin(2.0*q2 + q3) + qd1*qd3*sin(2.0*q2 + q3) + 1.5*qd1*qd2*sin(2*q2 + 2*q3) + 1.5*qd1*qd3*sin(2*q2 + 2*q3),  qdd1/2 - 0.5*qdd1*cos(2*q2 + 2*q3) + qd1*qd2*sin(2*q2 + 2*q3) + qd1*qd3*sin(2*q2 + 2*q3),        0,       0;...
+             0    ,        0,                  0.5*sin(2.0*q2)*qd1^2 + qdd2 + g*cos(q2),            - 1.0*sin(2.0*q2)*qd1^2 - 2.0*qdd2 - g*cos(q2),                              -0.5*qd1^2*sin(2.0*q2), 900*qd2,                                                                     1.5625*qdd2 + 0.5625*qdd3 - 0.75*qd3^2*sin(q3) + 0.75*g*cos(q2 + q3) + 0.75*qd1^2*sin(2.0*q2 + q3) + g*cos(q2) + 0.28125*qd1^2*sin(2*q2 + 2*q3) + 1.5*qdd2*cos(q3) + 0.75*qdd3*cos(q3) + 0.5*qd1^2*sin(2.0*q2) - 1.5*qd2*qd3*sin(q3),                                                 qd3^2*sin(q3) - 1.5*qdd3 - 1.5*qdd2 - 1.0*g*cos(q2 + q3) - 1.0*qd1^2*sin(2.0*q2 + q3) - 0.75*qd1^2*sin(2*q2 + 2*q3) - 2.0*qdd2*cos(q3) - 1.0*qdd3*cos(q3) + 2.0*qd2*qd3*sin(q3),                                                               -0.5*qd1^2*sin(2*q2 + 2*q3),        0,       0;...
+             0    ,        0,                                                         0,                                                         0,                                                   0,       0,                                                                                                                           0.5625*qdd2 + 0.5625*qdd3 + 0.375*qd1^2*sin(q3) + 0.75*qd2^2*sin(q3) + 0.75*g*cos(q2 + q3) + 0.375*qd1^2*sin(2.0*q2 + q3) + 0.28125*qd1^2*sin(2*q2 + 2*q3) + 0.75*qdd2*cos(q3),                                                                - 1.5*qdd2 - 1.5*qdd3 - 0.5*qd1^2*sin(q3) - 1.0*qd2^2*sin(q3) - 1.0*g*cos(q2 + q3) - 0.5*qd1^2*sin(2.0*q2 + q3) - 0.75*qd1^2*sin(2*q2 + 2*q3) - 1.0*qdd2*cos(q3),                                                               -0.5*qd1^2*sin(2*q2 + 2*q3), 225*qdd3, 225*qd3];
+ 
+simplify(Gamma*Sigma - Gamma_red*Sigma_red)
