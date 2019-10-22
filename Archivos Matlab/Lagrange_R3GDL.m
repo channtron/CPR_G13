@@ -1,57 +1,108 @@
-%Necesitamos conocer:
-    %vcdm,i (velocidad lineal de cada cdm respecto a U)
-    %wi respecto a i
-%La formulacion se basa en sacar las fuerzas y pares aplicados a partir de
-%la lagrangiana del conjunto L=K-U
+% Ejemplo de la utilización del algoritmo de Newton Euler para la dinámica
+% de un robot de 3 DGL
+% M.G. Ortega (2017)
 
-syms TauL1 TauL2 TauL3 q1 qd1 qdd1 q2 qd2 qdd2 q3 qd3 qdd3 g real  
+syms T1 T2 T3 q1 qd1 qdd1 q2 qd2 qdd2 q3 qd3 qdd3 g real  
 PI = sym('pi');
 
 % DATOS CINEMÁTICOS DEL BRAZO DEL ROBOT
 % Dimensiones (m)
-  L0=0;  % Base
-  L1=1;  % Eslabón 1 
-  L2=0.6557;  % Eslabón 2
-  L3=0.5;  % Eslabón 3
+    L1=0.65;
+    L2=1;
+    L0=0.5;
+    L3=0.75;
   
 % Parámetros de Denavit-Hartenberg (utilizado en primera regla de Newton-Euler)
 % Eslabón base (no utilizado)
   theta0=0; d0=L0; a0=0; alpha0=0;
 % Eslabón 1:
-  theta1=q1; d1=1; a1=0 ; alpha1=0;
+  theta1=q1; d1=L1; a1=0 ; alpha1=PI/2;
 % Eslabón 2:
-  theta2=PI/2 ; d2=q2+0.3 ; a2=0.3; alpha2=PI/2;
+  theta2=q2 ; d2=0 ; a2=L2; alpha2=0;
 % Eslabón 3:
-  theta3=0; d3=1+q3 ; a3=0; alpha3=0 ;
+  theta3=q3; d3=0 ; a3=L3; alpha3=0 ;
 % Entre eslabón 3 y marco donde se ejerce la fuerza (a definir según
 % experimento)
   theta4=0; d4=0 ; a4=0 ; alpha4=0 ;
 
 % DATOS DINÁMICOS DEL BRAZO DEL ROBOT
+    %TODOS SIMBOLICOS
+    syms m1 m2 m3 lc1 lc2 lc3 Ixx1 Ixx2 Ixx3 Iyy1 Iyy2 Iyy3 Izz1 Izz2 Izz3 Jm1 Jm2 Jm3 Bm1 Bm2 Bm3 real
 % Eslabón 1
-  m1=5.5 ; % kg
-  s11 = [0 , 0 ,-0.5 ]'; % m
-  I11=[ 0.4583,0  ,0  ;0 ,0.4583  ,0 ;0 ,0 ,0.0113 ]; % kg.m2
+%   m1=5.5 ; % kg
+   s11 = [0 , -lc1,0]'; % m
+   I11=[ Ixx1,0  ,0  ;0 ,Iyy1  ,0 ;0 ,0 ,Izz1]; % kg.m2
 
 % Eslabón 2
-  m2=4 ; % kg
-  s22 = [-0.1226, -0.0409 , 0.1138]'; % m
-  I22=[0.1281 -0.0290 -0.0558 ; -0.0290 0.1728 -0.0186 ; -0.0558 -0.0186 0.1004 ]; % kg.m2
- 
+%   m2=4 ; % kg
+   s22 = [-lc2, 0 , 0]'; % m
+   I22=[Ixx2 ,0  ,0  ;0 ,Iyy2  ,0 ;0 ,0 ,Izz2 ]; % kg.m2
+
 % Eslabón 3
-  m3=3.5 ; % kg
-  s33 = [0, 0 ,-0.25 ]'; % m
-  I33=[ 0.0729,  0, 0 ;0 , 0.0729 ,0 ;0 ,0 , 0.0072]; % kg.m2
+%   m3=3.5 ; % kg
+   s33 = [-lc3, 0 ,0]'; % m
+   I33=[Ixx3 ,0  ,0  ;0 ,Iyy3  ,0 ;0 ,0 ,Izz3 ]; % kg.m2
 
 % DATOS DE LOS MOTORES
 % Inercias
-  Jm1=0.25; Jm2=0.25; Jm3=0.08; % kg.m2% Coeficientes de fricción viscosa
+  %Jm1=0.25; Jm2=0.25; Jm3=0.08; % kg.m2
 % Coeficientes de fricción viscosa
-  Bm1=3.6e-5 ; Bm2=3.6e-5 ; Bm3=3.6e-5 ; % N.m / (rad/s)
+  %Bm1=3.6e-5 ; Bm2=3.6e-5 ; Bm3=3.6e-5 ; % N.m / (rad/s)
 % Factores de reducción
-  R1=25 ; R2=20 ; R3=25 ;
-  
- %L1: Obtención de las matrices de rotación (i)R(i-1) y de sus inversas
+  R1=50 ; R2=30 ; R3=15 ;
+% K
+  K1=0.5; K2=0.4; K3=0.35; %(N*m/A)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ALGORÍTMO DE NEWTON-EULER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% wij : velocidad angular absoluta de eje j expresada en i
+% wdij : aceleración angular absoluta de eje j expresada en i
+% vij : velocidad lineal absoluta del origen del marco j expresada en i
+% vdij : aceleración lineal absoluta del origen del marco j expresada en i
+% aii : aceleración del centro de gravedad del eslabón i, expresado en i?
+
+% fij : fuerza ejercida sobre la articulación j-1 (unión barra j-1 con j),
+% expresada en i-1
+%
+% nij : par ejercido sobre la articulación j-1 (unión barra j-1 con j),
+% expresada en i-1
+
+% pii : vector (libre) que une el origen de coordenadas de i-1 con el de i,
+% expresadas en i : [ai, di*sin(alphai), di*cos(alphai)] (a,d,aplha: parámetros de DH)
+%
+% sii : coordenadas del centro de masas del eslabón i, expresada en el sistema
+% i
+
+% Iii : matriz de inercia del eslabón i expresado en un sistema paralelo al
+% i y con el origen en el centro de masas del eslabón
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% N-E 1: Asignación a cada eslabón de sistema de referencia de acuerdo con las normas de D-H.
+  % Eslabón 1:
+    p11 = [a1, d1*sin(alpha1), d1*cos(alpha1)]';   
+  % Eslabón 2:
+    p22 = [a2, d2*sin(alpha2), d2*cos(alpha2)]'; 
+  % Eslabón 3:
+    p33 = [a3, d3*sin(alpha3), d3*cos(alpha3)]'; 
+  % Entre eslabón 2 y marco donde se ejerce la fuerza (supongo que el mismo
+  % que el Z0
+    p44 = [a4, d4*sin(alpha4), d4*cos(alpha4)]'; 
+
+% N-E 2: Condiciones iniciales de la base
+  w00=[0 0 0]';
+  wd00 = [0 0 0]';
+  v00 = [0 0 0]';
+  vd00 = [0 0 g]'; % Aceleración de la gravedad en el eje Z0 negativo
+
+% Condiciones iniciales para el extremo del robot
+  f44= [0 0 0]';
+  n44= [0 0 0]';
+
+% Definición de vector local Z
+  Z=[0 0 1]';
+
+
+% N-E 3: Obtención de las matrices de rotación (i)R(i-1) y de sus inversas
   R01=[cos(theta1) -cos(alpha1)*sin(theta1) sin(alpha1)*sin(theta1);
       sin(theta1)  cos(alpha1)*cos(theta1)  -sin(alpha1)*cos(theta1);
       0            sin(alpha1)                cos(alpha1)           ];
@@ -71,12 +122,12 @@ PI = sym('pi');
       sin(theta4)  cos(alpha4)*cos(theta4)  -sin(alpha4)*cos(theta4);
       0            sin(alpha4)              cos(alpha4)           ];
   R43= R34';
-  
+
   %Matrices de transformación a partir de los paarametros de Denavit
   %Hartenberg
-  A01=MDH(q1,L1,0,0);
-  A12=MDH(PI/2,L2+q2,L3,PI/2);
-  A23=MDH(0,1+q3,0,0);
+  A01=MTH([q1,L1,0,PI/2]);
+  A12=MTH([q2,0,L2,0]);
+  A23=MTH([q3,0,L3,0]);
   
  % L2: Asignación a cada eslabón de sistema de referencia de acuerdo con las normas de D-H.
   % Eslabón 1:

@@ -580,7 +580,6 @@ PI = sym('pi');
   [AA,ColumnasIndep]=rref(Gamma_numerica)
   % Linealmente Independientes 1 2 3 4 7 8 9 16 17 18 19
   
-<<<<<<< HEAD
   clear all;
   syms T1 T2 T3 q1 qd1 qdd1 q2 qd2 qdd2 q3 qd3 qdd3 g real
   PI = sym('pi');
@@ -596,7 +595,6 @@ PI = sym('pi');
 
   
   
-=======
   %%
     clear all
     syms T1 T2 T3 q1 qd1 qdd1 q2 qd2 qdd2 q3 qd3 qdd3 g real
