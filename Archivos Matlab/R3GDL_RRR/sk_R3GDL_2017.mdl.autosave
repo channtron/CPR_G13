@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.54"
+    ComputedModelVersion    "1.55"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -73,7 +73,7 @@ Model {
 	LoadSaveID		"0"
 	Extents			[1328.0, 563.0]
 	ZoomFactor		[0.8]
-	Offset			[-944.88255208333226, -34.70250723242691]
+	Offset			[-906.36588541666606, -11.513965766925651]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -107,9 +107,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Marta López"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Oct 23 10:48:35 2019"
-  RTWModifiedTimeStamp	  493730207
-  ModelVersionFormat	  "1.%<AutoIncrement:54>"
+  LastModifiedDate	  "Wed Oct 23 11:56:35 2019"
+  RTWModifiedTimeStamp	  493765177
+  ModelVersionFormat	  "1.%<AutoIncrement:55>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -220,7 +220,7 @@ Model {
 	  DisabledProps		  []
 	  Description		  ""
 	  StartTime		  "0.0"
-	  StopTime		  "20"
+	  StopTime		  "10"
 	  AbsTol		  "auto"
 	  AutoScaleAbsTol	  "on"
 	  FixedStep		  "auto"
@@ -915,7 +915,7 @@ Model {
 	  DisabledProps		  []
 	  Description		  ""
 	  StartTime		  "0.0"
-	  StopTime		  "20"
+	  StopTime		  "10"
 	  AbsTol		  "auto"
 	  AutoScaleAbsTol	  "on"
 	  FixedStep		  "auto"
@@ -1847,6 +1847,9 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      Terminator
+    }
+    Block {
       BlockType		      ToWorkspace
       VariableName	      "simulink_output"
       MaxDataPoints	      "1000"
@@ -1885,7 +1888,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "98"
+    SIDHighWatermark	    "129"
     Block {
       BlockType		      Clock
       Name		      "Clock"
@@ -1898,7 +1901,7 @@ Model {
       BlockType		      Clock
       Name		      "Clock1"
       SID		      "43"
-      Position		      [-215, 130, -195, 150]
+      Position		      [-405, 30, -385, 50]
       ZOrder		      291
       BackgroundColor	      "red"
     }
@@ -1906,7 +1909,7 @@ Model {
       BlockType		      Clock
       Name		      "Clock2"
       SID		      "47"
-      Position		      [-215, 275, -195, 295]
+      Position		      [-405, 175, -385, 195]
       ZOrder		      295
       BackgroundColor	      "red"
     }
@@ -1914,7 +1917,7 @@ Model {
       BlockType		      Clock
       Name		      "Clock3"
       SID		      "49"
-      Position		      [-215, 420, -195, 440]
+      Position		      [-405, 320, -385, 340]
       ZOrder		      297
       BackgroundColor	      "red"
     }
@@ -1922,28 +1925,28 @@ Model {
       BlockType		      Constant
       Name		      "Constant"
       SID		      "66"
-      Position		      [-70, 45, -40, 75]
+      Position		      [-260, -55, -230, -25]
       ZOrder		      314
     }
     Block {
       BlockType		      Constant
       Name		      "Constant1"
       SID		      "67"
-      Position		      [-70, 190, -40, 220]
+      Position		      [-260, 90, -230, 120]
       ZOrder		      315
     }
     Block {
       BlockType		      Constant
       Name		      "Constant2"
       SID		      "69"
-      Position		      [-60, 335, -30, 365]
+      Position		      [-250, 235, -220, 265]
       ZOrder		      317
     }
     Block {
       BlockType		      Fcn
       Name		      "Fcn"
       SID		      "58"
-      Position		      [-70, 105, -10, 135]
+      Position		      [-260, 5, -200, 35]
       ZOrder		      306
       Expr		      "u(1)*exp(-u(2)/5)"
     }
@@ -1951,7 +1954,7 @@ Model {
       BlockType		      Fcn
       Name		      "Fcn1"
       SID		      "60"
-      Position		      [-75, 250, -15, 280]
+      Position		      [-265, 150, -205, 180]
       ZOrder		      308
       Expr		      "u(1)*exp(-u(2)*0.2)"
     }
@@ -1959,7 +1962,7 @@ Model {
       BlockType		      Fcn
       Name		      "Fcn2"
       SID		      "61"
-      Position		      [-75, 395, -15, 425]
+      Position		      [-265, 295, -205, 325]
       ZOrder		      309
       Expr		      "u(1)*exp(-u(2)*0.2)"
     }
@@ -1968,7 +1971,7 @@ Model {
       Name		      "Mux"
       SID		      "5"
       Ports		      [3, 1]
-      Position		      [145, 222, 150, 298]
+      Position		      [-45, 122, -40, 198]
       ZOrder		      -5
       ShowName		      off
       Inputs		      "3"
@@ -1979,7 +1982,7 @@ Model {
       Name		      "Mux1"
       SID		      "46"
       Ports		      [2, 1]
-      Position		      [-140, 81, -135, 159]
+      Position		      [-330, -19, -325, 59]
       ZOrder		      294
       ShowName		      off
       Inputs		      "2"
@@ -1990,7 +1993,7 @@ Model {
       Name		      "Mux2"
       SID		      "48"
       Ports		      [2, 1]
-      Position		      [-140, 226, -135, 304]
+      Position		      [-330, 126, -325, 204]
       ZOrder		      296
       ShowName		      off
       Inputs		      "2"
@@ -2001,7 +2004,7 @@ Model {
       Name		      "Mux3"
       SID		      "50"
       Ports		      [2, 1]
-      Position		      [-140, 371, -135, 449]
+      Position		      [-330, 271, -325, 349]
       ZOrder		      298
       ShowName		      off
       Inputs		      "2"
@@ -2089,7 +2092,7 @@ Model {
 	    Type		    "checkbox"
 	    Name		    "AccionamientoDirecto"
 	    Prompt		    "Accionamiento directo"
-	    Value		    "off"
+	    Value		    "on"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -2197,12 +2200,13 @@ Model {
       Position		      [265, 566, 390, 714]
       ZOrder		      335
       BackgroundColor	      "red"
+      Commented		      "on"
       FontName		      "Arial Narrow"
       FontSize		      14
       RequestExecContextInheritance off
       System {
 	Name			"Robot"
-	Location		[-7, -7, 1543, 831]
+	Location		[-8, -8, 1374, 736]
 	Open			off
 	PortBlocksUseCompactNotation off
 	SetDomainSpec		off
@@ -2369,7 +2373,7 @@ Model {
       Name		      "Sine Wave"
       SID		      "34"
       Ports		      [0, 1]
-      Position		      [-295, 65, -265, 95]
+      Position		      [-485, -35, -455, -5]
       ZOrder		      282
       Amplitude		      "A11"
       Frequency		      "F11"
@@ -2381,7 +2385,7 @@ Model {
       Name		      "Sine Wave1"
       SID		      "35"
       Ports		      [0, 1]
-      Position		      [-295, 110, -265, 140]
+      Position		      [-485, 10, -455, 40]
       ZOrder		      283
       Amplitude		      "A12"
       Frequency		      "F12"
@@ -2393,7 +2397,7 @@ Model {
       Name		      "Sine Wave2"
       SID		      "83"
       Ports		      [0, 1]
-      Position		      [-295, 210, -265, 240]
+      Position		      [-485, 110, -455, 140]
       ZOrder		      331
       Amplitude		      "A11"
       Frequency		      "F11"
@@ -2405,7 +2409,7 @@ Model {
       Name		      "Sine Wave3"
       SID		      "84"
       Ports		      [0, 1]
-      Position		      [-295, 255, -265, 285]
+      Position		      [-485, 155, -455, 185]
       ZOrder		      332
       Amplitude		      "A12"
       Frequency		      "F12"
@@ -2417,7 +2421,7 @@ Model {
       Name		      "Sine Wave4"
       SID		      "85"
       Ports		      [0, 1]
-      Position		      [-295, 355, -265, 385]
+      Position		      [-485, 255, -455, 285]
       ZOrder		      333
       Amplitude		      "A11"
       Frequency		      "F11"
@@ -2429,12 +2433,511 @@ Model {
       Name		      "Sine Wave5"
       SID		      "86"
       Ports		      [0, 1]
-      Position		      [-295, 400, -265, 430]
+      Position		      [-485, 300, -455, 330]
       ZOrder		      334
       Amplitude		      "A12"
       Frequency		      "F12"
       Phase		      "Ph12"
       SampleTime	      "0"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Subsystem"
+      SID		      "99"
+      Ports		      [0, 1]
+      Position		      [-300, 397, -135, 493]
+      ZOrder		      339
+      RequestExecContextInheritance off
+      ContentPreviewEnabled   on
+      System {
+	Name			"Subsystem"
+	Location		[-8, -8, 1374, 736]
+	Open			off
+	PortBlocksUseCompactNotation off
+	SetDomainSpec		off
+	DomainSpecType		"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"80"
+	Block {
+	  BlockType		  Sum
+	  Name			  "Add10"
+	  SID			  "100"
+	  Ports			  [2, 1]
+	  Position		  [405, 132, 435, 163]
+	  ZOrder		  56
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Add11"
+	  SID			  "101"
+	  Ports			  [2, 1]
+	  Position		  [145, 302, 175, 333]
+	  ZOrder		  57
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Add12"
+	  SID			  "102"
+	  Ports			  [2, 1]
+	  Position		  [405, 337, 435, 368]
+	  ZOrder		  58
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Add7"
+	  SID			  "103"
+	  Ports			  [2, 1]
+	  Position		  [145, 117, 175, 148]
+	  ZOrder		  53
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Add8"
+	  SID			  "104"
+	  Ports			  [2, 1]
+	  Position		  [145, 192, 175, 223]
+	  ZOrder		  54
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Add9"
+	  SID			  "105"
+	  Ports			  [2, 1]
+	  Position		  [405, 227, 435, 258]
+	  ZOrder		  55
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Clock
+	  Name			  "Clock5"
+	  SID			  "106"
+	  Position		  [200, 155, 220, 175]
+	  ZOrder		  52
+	  BackgroundColor	  "red"
+	}
+	Block {
+	  BlockType		  Clock
+	  Name			  "Clock6"
+	  SID			  "107"
+	  Position		  [200, 235, 220, 255]
+	  ZOrder		  51
+	  BackgroundColor	  "red"
+	}
+	Block {
+	  BlockType		  Clock
+	  Name			  "Clock7"
+	  SID			  "108"
+	  Position		  [200, 345, 220, 365]
+	  ZOrder		  50
+	  BackgroundColor	  "red"
+	}
+	Block {
+	  BlockType		  Fcn
+	  Name			  "Fcn4"
+	  SID			  "109"
+	  Position		  [320, 330, 380, 360]
+	  ZOrder		  59
+	  Expr			  "(-exp(-u(2)/5))*u(1)"
+	}
+	Block {
+	  BlockType		  Fcn
+	  Name			  "Fcn5"
+	  SID			  "110"
+	  Position		  [320, 140, 380, 170]
+	  ZOrder		  60
+	  Expr			  "(-exp(-u(2)/5))*u(1)"
+	}
+	Block {
+	  BlockType		  Fcn
+	  Name			  "Fcn6"
+	  SID			  "111"
+	  Position		  [320, 220, 380, 250]
+	  ZOrder		  61
+	  Expr			  "(-exp(-u(2)/5))*u(1)"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Im1eq1"
+	  SID			  "112"
+	  Position		  [325, 90, 370, 120]
+	  ZOrder		  46
+	  Value			  "0.01"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Im2eq1"
+	  SID			  "113"
+	  Position		  [325, 280, 370, 310]
+	  ZOrder		  45
+	  Value			  "0.01"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Im3eq1"
+	  SID			  "114"
+	  Position		  [325, 390, 370, 420]
+	  ZOrder		  44
+	  Value			  "0.01"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux4"
+	  SID			  "115"
+	  Ports			  [3, 1]
+	  Position		  [545, 167, 550, 243]
+	  ZOrder		  43
+	  ShowName		  off
+	  Inputs		  "3"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux5"
+	  SID			  "116"
+	  Ports			  [2, 1]
+	  Position		  [270, 136, 275, 174]
+	  ZOrder		  47
+	  ShowName		  off
+	  Inputs		  "2"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux6"
+	  SID			  "117"
+	  Ports			  [2, 1]
+	  Position		  [270, 216, 275, 254]
+	  ZOrder		  48
+	  ShowName		  off
+	  Inputs		  "2"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux7"
+	  SID			  "118"
+	  Ports			  [2, 1]
+	  Position		  [270, 326, 275, 364]
+	  ZOrder		  49
+	  ShowName		  off
+	  Inputs		  "2"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Sin
+	  Name			  "Sine Wave10"
+	  SID			  "119"
+	  Ports			  [0, 1]
+	  Position		  [20, 295, 50, 325]
+	  ZOrder		  41
+	  Frequency		  "2"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sin
+	  Name			  "Sine Wave11"
+	  SID			  "120"
+	  Ports			  [0, 1]
+	  Position		  [60, 340, 90, 370]
+	  ZOrder		  42
+	  Amplitude		  "1.5"
+	  Frequency		  "5"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sin
+	  Name			  "Sine Wave6"
+	  SID			  "121"
+	  Ports			  [0, 1]
+	  Position		  [35, 20, 65, 50]
+	  ZOrder		  37
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sin
+	  Name			  "Sine Wave7"
+	  SID			  "122"
+	  Ports			  [0, 1]
+	  Position		  [20, 90, 50, 120]
+	  ZOrder		  38
+	  Amplitude		  "1.5"
+	  Frequency		  "5"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sin
+	  Name			  "Sine Wave8"
+	  SID			  "123"
+	  Ports			  [0, 1]
+	  Position		  [20, 185, 50, 215]
+	  ZOrder		  39
+	  Frequency		  "2"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sin
+	  Name			  "Sine Wave9"
+	  SID			  "124"
+	  Ports			  [0, 1]
+	  Position		  [60, 230, 90, 260]
+	  ZOrder		  40
+	  Amplitude		  "1.5"
+	  Frequency		  "5"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  "125"
+	  Position		  [570, 198, 600, 212]
+	  ZOrder		  62
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Add7"
+	  SrcPort		  1
+	  Points		  [35, 0; 0, 10]
+	  DstBlock		  "Mux5"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "Clock5"
+	  SrcPort		  1
+	  DstBlock		  "Mux5"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  3
+	  SrcBlock		  "Sine Wave9"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, -30]
+	  DstBlock		  "Add8"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Im3eq1"
+	  SrcPort		  1
+	  Points		  [15, 0]
+	  DstBlock		  "Add12"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "Fcn6"
+	  SrcPort		  1
+	  DstBlock		  "Add9"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  6
+	  SrcBlock		  "Sine Wave7"
+	  SrcPort		  1
+	  Points		  [30, 0; 0, 35]
+	  DstBlock		  "Add7"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  7
+	  SrcBlock		  "Clock6"
+	  SrcPort		  1
+	  DstBlock		  "Mux6"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  8
+	  SrcBlock		  "Fcn4"
+	  SrcPort		  1
+	  DstBlock		  "Add12"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  9
+	  SrcBlock		  "Mux7"
+	  SrcPort		  1
+	  DstBlock		  "Fcn4"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  10
+	  SrcBlock		  "Fcn5"
+	  SrcPort		  1
+	  DstBlock		  "Add10"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  11
+	  SrcBlock		  "Im1eq1"
+	  SrcPort		  1
+	  Points		  [15, 0]
+	  DstBlock		  "Add10"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  12
+	  SrcBlock		  "Add9"
+	  SrcPort		  1
+	  Points		  [0, -40]
+	  DstBlock		  "Mux4"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  13
+	  SrcBlock		  "Sine Wave6"
+	  SrcPort		  1
+	  Points		  [40, 0; 0, 90]
+	  DstBlock		  "Add7"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Sine Wave10"
+	  SrcPort		  1
+	  DstBlock		  "Add11"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  15
+	  SrcBlock		  "Mux6"
+	  SrcPort		  1
+	  DstBlock		  "Fcn6"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  16
+	  SrcBlock		  "Add12"
+	  SrcPort		  1
+	  Points		  [0, -45; 90, 0]
+	  DstBlock		  "Mux4"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  17
+	  SrcBlock		  "Add11"
+	  SrcPort		  1
+	  Points		  [35, 0; 0, 15]
+	  DstBlock		  "Mux7"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  18
+	  SrcBlock		  "Add10"
+	  SrcPort		  1
+	  Points		  [0, 30]
+	  DstBlock		  "Mux4"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  19
+	  SrcBlock		  "Sine Wave11"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, -30]
+	  DstBlock		  "Add11"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  20
+	  SrcBlock		  "Im2eq1"
+	  SrcPort		  1
+	  Points		  [15, 0]
+	  DstBlock		  "Add9"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  21
+	  SrcBlock		  "Add8"
+	  SrcPort		  1
+	  Points		  [35, 0; 0, 15]
+	  DstBlock		  "Mux6"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  22
+	  SrcBlock		  "Mux5"
+	  SrcPort		  1
+	  DstBlock		  "Fcn5"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  23
+	  SrcBlock		  "Clock7"
+	  SrcPort		  1
+	  DstBlock		  "Mux7"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  24
+	  SrcBlock		  "Sine Wave8"
+	  SrcPort		  1
+	  DstBlock		  "Add8"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  25
+	  SrcBlock		  "Mux4"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Annotation {
+	  SID			  "128"
+	  Name			  "Im1 (A)"
+	  Position		  [473, 147, 527, 167]
+	  InternalMargins	  [0, 0, 0, 0]
+	  ForegroundColor	  "red"
+	  ZOrder		  -1
+	  FontSize		  16
+	  FontWeight		  "bold"
+	}
+	Annotation {
+	  SID			  "127"
+	  Name			  "Im2 (A)"
+	  Position		  [468, 212, 522, 232]
+	  InternalMargins	  [0, 0, 0, 0]
+	  ForegroundColor	  "red"
+	  ZOrder		  -2
+	  FontSize		  16
+	  FontWeight		  "bold"
+	}
+	Annotation {
+	  SID			  "126"
+	  Name			  "Im3 (A)"
+	  Position		  [458, 277, 512, 297]
+	  InternalMargins	  [0, 0, 0, 0]
+	  ForegroundColor	  "red"
+	  ZOrder		  -3
+	  FontSize		  16
+	  FontWeight		  "bold"
+	}
+      }
     }
     Block {
       BlockType		      Sum
@@ -2453,7 +2956,7 @@ Model {
       Name		      "Sum1"
       SID		      "40"
       Ports		      [2, 1]
-      Position		      [-215, 89, -195, 111]
+      Position		      [-405, -11, -385, 11]
       ZOrder		      288
       ShowName		      off
       InputSameDT	      off
@@ -2465,7 +2968,7 @@ Model {
       Name		      "Sum2"
       SID		      "41"
       Ports		      [2, 1]
-      Position		      [-215, 234, -195, 256]
+      Position		      [-405, 134, -385, 156]
       ZOrder		      289
       ShowName		      off
       InputSameDT	      off
@@ -2477,7 +2980,7 @@ Model {
       Name		      "Sum3"
       SID		      "42"
       Ports		      [2, 1]
-      Position		      [-215, 379, -195, 401]
+      Position		      [-405, 279, -385, 301]
       ZOrder		      290
       ShowName		      off
       InputSameDT	      off
@@ -2489,7 +2992,7 @@ Model {
       Name		      "Sum4"
       SID		      "62"
       Ports		      [2, 1]
-      Position		      [50, 394, 70, 416]
+      Position		      [-140, 294, -120, 316]
       ZOrder		      310
       ShowName		      off
       InputSameDT	      off
@@ -2501,7 +3004,7 @@ Model {
       Name		      "Sum5"
       SID		      "63"
       Ports		      [2, 1]
-      Position		      [40, 249, 60, 271]
+      Position		      [-150, 149, -130, 171]
       ZOrder		      311
       ShowName		      off
       InputSameDT	      off
@@ -2513,12 +3016,19 @@ Model {
       Name		      "Sum6"
       SID		      "64"
       Ports		      [2, 1]
-      Position		      [40, 104, 60, 126]
+      Position		      [-150, 4, -130, 26]
       ZOrder		      312
       ShowName		      off
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator"
+      SID		      "129"
+      Position		      [-15, 150, 5, 170]
+      ZOrder		      340
     }
     Block {
       BlockType		      UniformRandomNumber
@@ -2747,43 +3257,6 @@ Model {
 	ZOrder			9
 	DstBlock		"tiempo"
 	DstPort			1
-      }
-    }
-    Line {
-      ZOrder		      2
-      SrcBlock		      "Mux"
-      SrcPort		      1
-      Points		      [14, 0]
-      Branch {
-	ZOrder			147
-	Points			[0, 380]
-	DstBlock		"Robot"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			146
-	Points			[30, 0]
-	Branch {
-	  ZOrder		  14
-	  Points		  [0, -150]
-	  Branch {
-	    ZOrder		    18
-	    Points		    [0, -45]
-	    DstBlock		    "q3"
-	    DstPort		    1
-	  }
-	  Branch {
-	    ZOrder		    17
-	    DstBlock		    "q2"
-	    DstPort		    1
-	  }
-	}
-	Branch {
-	  ZOrder		  13
-	  Points		  [0, 20]
-	  DstBlock		  "R3GDL"
-	  DstPort		  1
-	}
       }
     }
     Line {
@@ -3096,6 +3569,30 @@ Model {
       SrcBlock		      "Robot"
       SrcPort		      2
       DstBlock		      "qd2"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      200
+      SrcBlock		      "Subsystem"
+      SrcPort		      1
+      Points		      [125, 0; 0, -165; 141, 0]
+      Branch {
+	ZOrder			203
+	Points			[0, -170]
+	DstBlock		"q2"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			202
+	DstBlock		"R3GDL"
+	DstPort			1
+      }
+    }
+    Line {
+      ZOrder		      201
+      SrcBlock		      "Mux"
+      SrcPort		      1
+      DstBlock		      "Terminator"
       DstPort		      1
     }
     Annotation {
