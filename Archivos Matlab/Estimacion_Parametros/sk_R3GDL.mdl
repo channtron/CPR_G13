@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.47"
+    ComputedModelVersion    "1.49"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -47,7 +47,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, -8.0, 1382.0, 744.0]
+      Location		      [8.0, 8.0, 1382.0, 744.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -72,7 +72,7 @@ Model {
 	  IsActive		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1328.0, 560.0]
+	  Extents		  [1665.0, 711.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, 0.0]
 	}
@@ -81,7 +81,7 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "60"
-	  Extents		  [1328.0, 560.0]
+	  Extents		  [1660.0, 700.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, 0.0]
 	}
@@ -98,18 +98,18 @@ Model {
 	UserData		""
 	Floating		[0]
 	DockPosition		"Right"
-	Width			[640]
-	Height			[480]
+	Width			[512]
+	Height			[384]
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAAA/sAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABjAP///wAAAAEAAAAAAAAAAPwCA"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAAB4AP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAKwD///8AAAVWAAACbAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAANAD///8AAAauAAADEAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
-      "////wEAAAB5/////wAAAAAAAAAA/////wEAAADa/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFT/////wAAAAAAAAAA/"
-      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAMr/////wAAAAAAAAAA/"
-      "////wEAAANa/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
+      "////wEAAACR/////wAAAAAAAAAA/////wEAAAEE/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAGV/////wAAAAAAAAAA/"
+      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAPG/////wAAAAAAAAAA/"
+      "////wEAAAP+/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
   HideAutomaticNames	  on
@@ -117,11 +117,11 @@ Model {
   Creator		  "mortega"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Marta López"
+  LastModifiedBy	  "usuario"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Oct 23 10:58:36 2019"
-  RTWModifiedTimeStamp	  493728702
-  ModelVersionFormat	  "1.%<AutoIncrement:47>"
+  LastModifiedDate	  "Wed Oct 23 22:56:07 2019"
+  RTWModifiedTimeStamp	  493772163
+  ModelVersionFormat	  "1.%<AutoIncrement:49>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1171,7 +1171,7 @@ Model {
   }
   System {
     Name		    "sk_R3GDL"
-    Location		    [-8, -8, 1374, 736]
+    Location		    [8, 8, 1390, 752]
     Open		    on
     PortBlocksUseCompactNotation off
     SetDomainSpec	    off
@@ -1360,7 +1360,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"MODELO ESTIMADO"
-	Location		[-8, -8, 1374, 736]
+	Location		[8, 8, 1390, 752]
 	Open			on
 	PortBlocksUseCompactNotation off
 	SetDomainSpec		off
@@ -1642,7 +1642,7 @@ Model {
 	    Type		    "checkbox"
 	    Name		    "AccionamientoDirecto"
 	    Prompt		    "Accionamiento directo"
-	    Value		    "off"
+	    Value		    "on"
 	  }
 	  PropName		  "Parameters"
 	}

@@ -1,4 +1,4 @@
-% Ejemplo de la utilización del algoritmo de Newton Euler para la dinámica
+00% Ejemplo de la utilización del algoritmo de Newton Euler para la dinámica
 % de un robot de 3 DGL
 % M.G. Ortega (2017)
 
