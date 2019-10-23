@@ -14,8 +14,7 @@ Gamma_red= [  qdd1, (R1^2)*qd1, 0.5*qdd1 + 0.5*qdd1*cos(2.0*q2) - 1.0*qd1*qd2*si
   T2=Tau(2);
   T3=Tau(3);
   
-  %A PARTIR DE AQUÍ ES CÓDIGO NUESTRO
-  %---------------------------------------------------------------------
+ 
   T1=simplify(T1);
   T2=simplify(T2);
   T3=simplify(T3);
