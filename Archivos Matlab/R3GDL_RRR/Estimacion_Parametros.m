@@ -10,6 +10,7 @@ A11=0.5; A12=.5; F11=5; F12=3; Ph11=0.5; Ph12=0;
 sim('sk_R3GDL_2017');
 % Factores de reducción
   R=diag([50,30,15]) ;
+ %R=diag([1 1 1]); %Accionamiento directo
 % K
   K=diag([0.5,0.4,0.35]); %(N*m/A)
 
@@ -22,7 +23,7 @@ Sigma_red=[Iyy1+2500*Jm1+Iyy2-Izz2-900*Jm2+Iyy3-Izz3 ;Bm1 ;m2-m2*lc2^2-Izz2-900*
 Y=Im*R*K;
 g=9.81;
 j=1;
-for i=2000:20:size(t)
+for i=2000:10:size(t)
     
     Gamma(j:j+2,:)= [  qdd(i,1), 2500*qd(i,1), 0.5*qdd(i,1) + 0.5*qdd(i,1)*cos(2.0*q(i,2)) - 1.0*qd(i,1)*qd(i,2)*sin(2.0*q(i,2)), 2.0*qd(i,1)*qd(i,2)*sin(2.0*q(i,2)) - 1.0*qdd(i,1)*cos(2.0*q(i,2)) - 1.0*qdd(i,1), qdd(i,1)/2 - 0.5*qdd(i,1)*cos(2.0*q(i,2)) + qd(i,1)*qd(i,2)*sin(2.0*q(i,2)),       0, 0.78125*qdd(i,1) + 0.75*qdd(i,1)*cos(2.0*q(i,2) + q(i,3)) + 0.28125*qdd(i,1)*cos(2*q(i,2) + 2*q(i,3)) + 0.5*qdd(i,1)*cos(2.0*q(i,2)) + 0.75*qdd(i,1)*cos(q(i,3)) - 0.75*qd(i,1)*qd(i,3)*sin(q(i,3)) - 1.5*qd(i,1)*qd(i,2)*sin(2.0*q(i,2) + q(i,3)) - 0.75*qd(i,1)*qd(i,3)*sin(2.0*q(i,2) + q(i,3)) - 0.5625*qd(i,1)*qd(i,2)*sin(2*q(i,2) + 2*q(i,3)) - 0.5625*qd(i,1)*qd(i,3)*sin(2*q(i,2) + 2*q(i,3)) - 1.0*qd(i,1)*qd(i,2)*sin(2.0*q(i,2)), qd(i,1)*qd(i,3)*sin(q(i,3)) - 1.0*qdd(i,1)*cos(2.0*q(i,2) + q(i,3)) - 0.75*qdd(i,1)*cos(2*q(i,2) + 2*q(i,3)) - 1.0*qdd(i,1)*cos(q(i,3)) - 0.75*qdd(i,1) + 2.0*qd(i,1)*qd(i,2)*sin(2.0*q(i,2) + q(i,3)) + qd(i,1)*qd(i,3)*sin(2.0*q(i,2) + q(i,3)) + 1.5*qd(i,1)*qd(i,2)*sin(2*q(i,2) + 2*q(i,3)) + 1.5*qd(i,1)*qd(i,3)*sin(2*q(i,2) + 2*q(i,3)),  qdd(i,1)/2 - 0.5*qdd(i,1)*cos(2*q(i,2) + 2*q(i,3)) + qd(i,1)*qd(i,2)*sin(2*q(i,2) + 2*q(i,3)) + qd(i,1)*qd(i,3)*sin(2*q(i,2) + 2*q(i,3)),        0,       0;...
              0    ,        0,                  0.5*sin(2.0*q(i,2))*qd(i,1)^2 + qdd(i,2) + g*cos(q(i,2)),            - 1.0*sin(2.0*q(i,2))*qd(i,1)^2 - 2.0*qdd(i,2) - g*cos(q(i,2)),                              -0.5*qd(i,1)^2*sin(2.0*q(i,2)), 900*qd(i,2),                                                                     1.5625*qdd(i,2) + 0.5625*qdd(i,3) - 0.75*qd(i,3)^2*sin(q(i,3)) + 0.75*g*cos(q(i,2) + q(i,3)) + 0.75*qd(i,1)^2*sin(2.0*q(i,2) + q(i,3)) + g*cos(q(i,2)) + 0.28125*qd(i,1)^2*sin(2*q(i,2) + 2*q(i,3)) + 1.5*qdd(i,2)*cos(q(i,3)) + 0.75*qdd(i,3)*cos(q(i,3)) + 0.5*qd(i,1)^2*sin(2.0*q(i,2)) - 1.5*qd(i,2)*qd(i,3)*sin(q(i,3)),                                                 qd(i,3)^2*sin(q(i,3)) - 1.5*qdd(i,3) - 1.5*qdd(i,2) - 1.0*g*cos(q(i,2) + q(i,3)) - 1.0*qd(i,1)^2*sin(2.0*q(i,2) + q(i,3)) - 0.75*qd(i,1)^2*sin(2*q(i,2) + 2*q(i,3)) - 2.0*qdd(i,2)*cos(q(i,3)) - 1.0*qdd(i,3)*cos(q(i,3)) + 2.0*qd(i,2)*qd(i,3)*sin(q(i,3)),                                                               -0.5*qd(i,1)^2*sin(2*q(i,2) + 2*q(i,3)),        0,       0;...
@@ -32,7 +33,7 @@ for i=2000:20:size(t)
 end
 
 theta=lscov(Gamma,Taux); %pseudo inversa del primero por el segundo
-
+%theta=inv(Gamma'*Gamma)*Gamma'*Taux;
 [rn,m]=size(Gamma);
 sigma_cuad= (norm(Taux-Gamma*theta)^2)/(rn-m);
 csig=sigma_cuad*inv(Gamma'*Gamma);

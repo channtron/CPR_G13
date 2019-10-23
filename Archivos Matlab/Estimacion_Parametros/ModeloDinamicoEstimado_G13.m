@@ -1,4 +1,4 @@
-function [qdd] = ModeloDinamico_R3GDL(in)
+function [qdd] = ModeloDinamicoEstimado_G13(in)
 
 % Variables de entrada en la funcion: [q(2)  qp(2)  Imotor(2)]
 q1        = in(1);
@@ -20,21 +20,20 @@ Im3      = in(9);
 
 %SIN ACCIONAMIENTO DIRECTO R=/=1
 % Matriz de Inercias
-  M =[  2.0808*cos(2.0*q2 + q3) + 2.7549*cos(2.0*q2) + 2.0808*cos(q3) + 0.61697*cos(2.0*q2 + 2.0*q3) + 29.839,                       0,                       0;
-                                                                                                     0, 4.1616*cos(q3) + 48.364, 2.0808*cos(q3) + 1.2355;
-                                                                                                     0, 2.0808*cos(q3) + 1.2355,                   6.722];
-
-% Matriz de aceleraciones centrípetas y de Coriolis
-  V = [ -8.6736e-19*qd1*(4.798e18*qd2*sin(2.0*q2 + q3) + 2.399e18*qd3*sin(2.0*q2 + q3) + 6.3524e18*qd2*sin(2.0*q2) + 2.399e18*qd3*sin(q3) + 1.4226e18*qd2*sin(2.0*q2 + 2.0*q3) + 1.4226e18*qd3*sin(2.0*q2 + 2.0*q3) - 3.4588e19);
-                                                                 7.65*qd2 - 2.0808*qd3^2*sin(q3) + 0.61697*qd1^2*sin(2.0*q2 + 2.0*q3) + 2.0808*qd1^2*sin(2.0*q2 + q3) + 2.7549*qd1^2*sin(2.0*q2) - 4.1616*qd2*qd3*sin(q3);
-                                                                                             3.375*qd3 + 1.0404*qd1^2*sin(q3) + 2.0808*qd2^2*sin(q3) + 0.61697*qd1^2*sin(2.0*q2 + 2.0*q3) + 1.0404*qd1^2*sin(2.0*q2 + q3)];
+  M =[ 0.97105*cos(2.0*q2 + q3) + 2.0613*cos(2.0*q2) + 0.97105*cos(q3) + 0.19832*cos(2.0*q2 + 2.0*q3) + 14.31,                         0,                         0;
+                                                                                                     0,   1.9421*cos(q3) + 46.139, 0.97105*cos(q3) + 0.39767;
+                                                                                                      0, 0.97105*cos(q3) + 0.39767,                    2.0233];
  
+  
+% Matriz de aceleraciones centrípetas y de Coriolis
+  V = [ -4.3368e-19*qd1*(4.4782e18*qd2*sin(2.0*q2 + q3) + 2.2391e18*qd3*sin(2.0*q2 + q3) + 9.5061e18*qd2*sin(2.0*q2) + 2.2391e18*qd3*sin(q3) + 9.146e17*qd2*sin(2.0*q2 + 2.0*q3) + 9.146e17*qd3*sin(2.0*q2 + 2.0*q3) - 6.9175e19);
+                                                                7.65*qd2 - 0.97105*qd3^2*sin(q3) + 0.19832*qd1^2*sin(2.0*q2 + 2.0*q3) + 0.97105*qd1^2*sin(2.0*q2 + q3) + 2.0613*qd1^2*sin(2.0*q2) - 1.9421*qd2*qd3*sin(q3);
+                                                                                           3.375*qd3 + 0.48552*qd1^2*sin(q3) + 0.97105*qd2^2*sin(q3) + 0.19832*qd1^2*sin(2.0*q2 + 2.0*q3) + 0.48552*qd1^2*sin(2.0*q2 + q3)];
  
 % Par gravitatorio                
-  G = [   0;
- g*(2.0808*cos(q2 + q3) + 6.3812*cos(q2));
-                    2.0808*g*cos(q2 + q3)];
- 
+  G = [0
+ g*(0.97105*cos(q2 + q3) + 4.994*cos(q2));
+                   0.97105*g*cos(q2 + q3)];
 % %CON ACCIONAMIENTO DIRECTO R=1
 % M =[ 2.0808*cos(2.0*q2 + q3) + 2.7549*cos(2.0*q2) + 2.0808*cos(q3) + 0.61697*cos(2.0*q2 + 2.0*q3) + 3.3934,                       0,                       0;
 %                                                                                                     0, 4.1616*cos(q3) + 6.7936, 2.0808*cos(q3) + 1.2355;
@@ -56,4 +55,3 @@ Im3      = in(9);
 % Por lo que:  
 % Aceleraciones
   qdd = inv(M)*(Tau-V-G);
-  
