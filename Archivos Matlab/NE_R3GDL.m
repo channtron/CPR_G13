@@ -1,6 +1,7 @@
 Estimacion_Parametros;
 
-syms T1 T2 T3 q1 qd1 qdd1 q2 qd2 qdd2 q3 qd3 qdd3 real  
+clear g;
+syms T1 T2 T3 q1 qd1 qdd1 q2 qd2 qdd2 q3 qd3 qdd3 g real  
 PI = sym('pi');
 
 
