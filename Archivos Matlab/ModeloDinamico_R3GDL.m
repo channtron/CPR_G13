@@ -52,7 +52,7 @@ Im3      = in(9);
 % Ecuación del robot
 %    Tau = M*qpp + V + G
   Im=[Im1;Im2;Im3];
-  Tau=[Im1*R(1)*K(1);Im2*R(2)*K(2);Im3*R(3)*K(3)];
+  Tau=[Im1*R(1,1)*K(1,1);Im2*R(2,2)*K(2,2);Im3*R(3,3)*K(3,3)];
 % Por lo que:  
 % Aceleraciones
   qdd = inv(M)*(Tau-V-G);

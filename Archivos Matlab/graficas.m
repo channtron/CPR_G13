@@ -1,3 +1,6 @@
+clear all; close all; clc;
+
+A11=0.5; A12=.5; F11=5; F12=3; Ph11=0.5; Ph12=0;Tm=0.001;
 
 sim('sk_R3GDL_2017');
 
@@ -12,9 +15,9 @@ figure();subplot(3,1,1);plot(t,qd(:,1),t,qdr(:,1));grid;xlabel('Tiempo(s)');ylab
     subplot(3,1,3);plot(t,qd(:,3),t,qdr(:,3));grid;xlabel('Tiempo(s)');ylabel('qd3 vs qd3 robot(rad/s)');legend('qd3','qd3rob','location','northwest');
 
 %qdd vs qdd ref
-figure();subplot(3,1,1);plot(t,qdd(:,1),t,qddr(:,1));grid;xlabel('Tiempo(s)');ylabel('qdd1 vs qdd1 robot(rad/s^2)');legend('qdd1','qdd1ref','location','southwest');...
-    subplot(3,1,2);plot(t,qdd(:,2),t,qddr(:,2));grid;xlabel('Tiempo(s)');ylabel('qdd2 vs qdd2 robot(rad/s^2)');legend('qdd2','qdd2ref','location','northwest');...
-    subplot(3,1,3);plot(t,qdd(:,3),t,qddr(:,3));grid;xlabel('Tiempo(s)');ylabel('qdd3 vs qdd3 robot(rad/s^2)');legend('qdd3','qdd3ref','location','northwest');
+figure();subplot(3,1,1);plot(t,qdd(:,1),t,qddr(:,1));grid;xlabel('Tiempo(s)');ylabel('qdd1 vs qdd1 robot(rad/s^2)');legend('qdd1','qdd1rob','location','southwest');...
+    subplot(3,1,2);plot(t,qdd(:,2),t,qddr(:,2));grid;xlabel('Tiempo(s)');ylabel('qdd2 vs qdd2 robot(rad/s^2)');legend('qdd2','qdd2rob','location','northwest');...
+    subplot(3,1,3);plot(t,qdd(:,3),t,qddr(:,3));grid;xlabel('Tiempo(s)');ylabel('qdd3 vs qdd3 robot(rad/s^2)');legend('qdd3','qdd3rob','location','northwest');
 
 %Fuerzas y pares
 % figure();subplot(3,1,1);plot(t,Im(:,1));grid;xlabel('Tiempo(s)');ylabel('N1(N*m)');...
