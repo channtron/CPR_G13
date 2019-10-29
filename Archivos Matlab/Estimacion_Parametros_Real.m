@@ -10,8 +10,7 @@ Tm=0.001;
 %A11=4; A12=3; F11=6; F12=1; Ph11=0.5; Ph12=0; %PARAMETRO 10
 %A11=3; A12=4; F11=6; F12=1; Ph11=0.5; Ph12=0; %PARAMETROS 1, 2, 3, 4, 5 & 11
 %A11=3; A12=5; F11=4; F12=1; Ph11=0.5; Ph12=0; %PARAMETR 6
-A11=1; A12=.5; F11=4; F12=1; Ph11=0.5; Ph12=0;
-
+A11=1; A12=0.5; F11=2; F12=1; Ph11=0.5; Ph12=0;
 
 sim('sk_R3GDL_2017');
 % Factores de reducción
@@ -32,10 +31,11 @@ Sigma_red=[Iyy1+(R1^2)*Jm1+Iyy2-Izz2-(R2^2)*Jm2+Iyy3-Izz3 ;Bm1 ;m2-m2*lc2^2-Izz2
 %  
 [numf,denf]=butter(2,(2*pi*40)/(pi/Tm));
 qdf=filter(numf,denf,qd_ms);
-qdd_est=zeros(length(qdf),3);
+qdd_aux=zeros(length(qdf),3);
 for i=2:length(qdf)-1
-    qdd_est(i,:)=(qdf(i+1,:)-qdf(i-1,:))./(2*Tm);
+    qdd_aux(i,:)=(qdf(i+1,:)-qdf(i-1,:))./(2*Tm);
 end
+qdd_est=filter(numf,denf,qdd_aux); %Filtro tambien la señal de aceleracion estimada
 Y=Im*diag([R1 R2 R3])*K;
 g=9.81;
 j=1;
@@ -49,7 +49,7 @@ for i=2000:10:size(t)
     j= j+3;
 end
 
-theta_ideal = [-0.028264267000001, 0.000004800000000,3.851827402555567,0.823079565000001,0.048290425000000, 0.000009444444444, 3.352430812444457, 0.433503984333334, 0.001537500000000, 0.000108375995556, 0.000066666666667];
+theta_ideal = [-0.028264267, 0.0000048,3.851827402555567,0.823079565,0.048290425, 0.000009444444444, 3.352430812444457, 0.433503984333334, 0.0015375, 0.000108375995556, 0.000066666666667];
 
 theta=lscov(Gamma,Taux); %pseudo inversa del primero por el segundo
 %theta=inv(Gamma'*Gamma)*Gamma'*Taux;
