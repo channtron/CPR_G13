@@ -9,8 +9,8 @@ A11=0.5; A12=.5; F11=5; F12=3; Ph11=0.5; Ph12=0;
 
 sim('sk_R3GDL_2017');
 % Factores de reducción
-  %R1=50; R2=30; R3=15;
-  R1=1; R2=1; R3=1; %Accionamiento directo
+  R1=50; R2=30; R3=15;
+  %R1=1; R2=1; R3=1; %Accionamiento directo
  
 % K
   K=diag([0.5,0.4,0.35]); %(N*m/A)

@@ -5,17 +5,12 @@ clear all;
 syms m1 m2 m3 lc1 lc2 lc3 Ixx1 Ixx2 Ixx3 Iyy1 Iyy2 Iyy3 Izz1 Izz2 Izz3 Jm1 Jm2 Jm3 Bm1 Bm2 Bm3 real
 Tm=0.001;
 
-%A11=4; A12=3; F11=16; F12=1; Ph11=0.5; Ph12=0; %PARAMETRO 9
-%A11=4; A12=3; F11=6; F12=2; Ph11=0.5; Ph12=0; %PARAMETROS 7 & 8
-%A11=4; A12=3; F11=6; F12=1; Ph11=0.5; Ph12=0; %PARAMETRO 10
-%A11=3; A12=4; F11=6; F12=1; Ph11=0.5; Ph12=0; %PARAMETROS 1, 2, 3, 4, 5 & 11
-%A11=3; A12=5; F11=4; F12=1; Ph11=0.5; Ph12=0; %PARAMETR 6
-A11=1; A12=0.5; F11=2; F12=1; Ph11=0.5; Ph12=0;
+A11=0.5; A12=.5; F11=5; F12=3; Ph11=0.5; Ph12=0;
 
 sim('sk_R3GDL_2017');
 % Factores de reducción
-  %R1=50; R2=30; R3=15;
-  R1=1; R2=1; R3=1; %Accionamiento directo
+  R1=50; R2=30; R3=15;
+  %R1=1; R2=1; R3=1; %Accionamiento directo
  
 % K
   K=diag([0.5,0.4,0.35]); %(N*m/A)
@@ -29,7 +24,7 @@ Sigma_red=[Iyy1+(R1^2)*Jm1+Iyy2-Izz2-(R2^2)*Jm2+Iyy3-Izz3 ;Bm1 ;m2-m2*lc2^2-Izz2
 %              0    ,        0,                  0.5*sin(2.0*q2)*qd1^2 + qdd2 + g*cos(q2),            - 1.0*sin(2.0*q2)*qd1^2 - 2.0*qdd2 - g*cos(q2),                              -0.5*qd1^2*sin(2.0*q2), 900*qd2,                                                                     1.5625*qdd2 + 0.5625*qdd3 - 0.75*qd3^2*sin(q3) + 0.75*g*cos(q2 + q3) + 0.75*qd1^2*sin(2.0*q2 + q3) + g*cos(q2) + 0.28125*qd1^2*sin(2*q2 + 2*q3) + 1.5*qdd2*cos(q3) + 0.75*qdd3*cos(q3) + 0.5*qd1^2*sin(2.0*q2) - 1.5*qd2*qd3*sin(q3),                                                 qd3^2*sin(q3) - 1.5*qdd3 - 1.5*qdd2 - 1.0*g*cos(q2 + q3) - 1.0*qd1^2*sin(2.0*q2 + q3) - 0.75*qd1^2*sin(2*q2 + 2*q3) - 2.0*qdd2*cos(q3) - 1.0*qdd3*cos(q3) + 2.0*qd2*qd3*sin(q3),                                                               -0.5*qd1^2*sin(2*q2 + 2*q3),        0,       0;...
 %              0    ,        0,                                                         0,                                                         0,                                                   0,       0,                                                                                                                           0.5625*qdd2 + 0.5625*qdd3 + 0.375*qd1^2*sin(q3) + 0.75*qd2^2*sin(q3) + 0.75*g*cos(q2 + q3) + 0.375*qd1^2*sin(2.0*q2 + q3) + 0.28125*qd1^2*sin(2*q2 + 2*q3) + 0.75*qdd2*cos(q3),                                                                - 1.5*qdd2 - 1.5*qdd3 - 0.5*qd1^2*sin(q3) - 1.0*qd2^2*sin(q3) - 1.0*g*cos(q2 + q3) - 0.5*qd1^2*sin(2.0*q2 + q3) - 0.75*qd1^2*sin(2*q2 + 2*q3) - 1.0*qdd2*cos(q3),                                                               -0.5*qd1^2*sin(2*q2 + 2*q3), 225*qdd3, 225*qd3];
 %  
-[numf,denf]=butter(2,(2*pi*40)/(pi/Tm));
+[numf,denf]=butter(2,(2*pi*60)/(pi/Tm));
 qdf=filter(numf,denf,qd_ms);
 qdd_aux=zeros(length(qdf),3);
 for i=2:length(qdf)-1
