@@ -5,7 +5,16 @@ clear all;
 syms m1 m2 m3 lc1 lc2 lc3 Ixx1 Ixx2 Ixx3 Iyy1 Iyy2 Iyy3 Izz1 Izz2 Izz3 Jm1 Jm2 Jm3 Bm1 Bm2 Bm3 real
 Tm=0.001;
 
+<<<<<<< HEAD
 A11=0.5; A12=.5; F11=5; F12=3; Ph11=0.5; Ph12=0;
+=======
+
+%%A11=3; A12=4; F11=5; F12=3; Ph11=0; Ph12=0; %PARAMETRO 6
+%%A11=3; A12=3; F11=2; F12=6; Ph11=0; Ph12=0; %PARAMETRO 7, 8, 10
+%%A11=3; A12=4; F11=6; F12=1; Ph11=0.5; Ph12=0; %PARAMETROS 1, 2, 3, 4, 5 & 11
+%%A11=3; A12=2; F11=3; F12=9; Ph11=0; Ph12=0; %PARAMETRO 9
+A11=3; A12=3; F11=5; F12=15; Ph11=0; Ph12=0;
+>>>>>>> 4aa31469315d4fac104550082d76ad7d389b2deb
 
 sim('sk_R3GDL_2017');
 % Factores de reducción

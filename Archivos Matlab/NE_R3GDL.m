@@ -9,7 +9,7 @@ Gamma_red= [  qdd1, (R1^2)*qd1, 0.5*qdd1 + 0.5*qdd1*cos(2.0*q2) - 1.0*qd1*qd2*si
              0    ,        0,                  0.5*sin(2.0*q2)*qd1^2 + qdd2 + g*cos(q2),            - 1.0*sin(2.0*q2)*qd1^2 - 2.0*qdd2 - g*cos(q2),                              -0.5*qd1^2*sin(2.0*q2), (R2^2)*qd2,                                                                     1.5625*qdd2 + 0.5625*qdd3 - 0.75*qd3^2*sin(q3) + 0.75*g*cos(q2 + q3) + 0.75*qd1^2*sin(2.0*q2 + q3) + g*cos(q2) + 0.28125*qd1^2*sin(2*q2 + 2*q3) + 1.5*qdd2*cos(q3) + 0.75*qdd3*cos(q3) + 0.5*qd1^2*sin(2.0*q2) - 1.5*qd2*qd3*sin(q3),                                                 qd3^2*sin(q3) - 1.5*qdd3 - 1.5*qdd2 - 1.0*g*cos(q2 + q3) - 1.0*qd1^2*sin(2.0*q2 + q3) - 0.75*qd1^2*sin(2*q2 + 2*q3) - 2.0*qdd2*cos(q3) - 1.0*qdd3*cos(q3) + 2.0*qd2*qd3*sin(q3),                                                               -0.5*qd1^2*sin(2*q2 + 2*q3),        0,       0;...
              0    ,        0,                                                         0,                                                         0,                                                   0,       0,                                                                                                                           0.5625*qdd2 + 0.5625*qdd3 + 0.375*qd1^2*sin(q3) + 0.75*qd2^2*sin(q3) + 0.75*g*cos(q2 + q3) + 0.375*qd1^2*sin(2.0*q2 + q3) + 0.28125*qd1^2*sin(2*q2 + 2*q3) + 0.75*qdd2*cos(q3),                                                                - 1.5*qdd2 - 1.5*qdd3 - 0.5*qd1^2*sin(q3) - 1.0*qd2^2*sin(q3) - 1.0*g*cos(q2 + q3) - 0.5*qd1^2*sin(2.0*q2 + q3) - 0.75*qd1^2*sin(2*q2 + 2*q3) - 1.0*qdd2*cos(q3),                                                               -0.5*qd1^2*sin(2*q2 + 2*q3), (R3^2)*qdd3, (R3^2)*qd3];
  
-  Tau=Gamma_red*theta;
+  Tau=Gamma_red*theta_err';
   T1=Tau(1);
   T2=Tau(2);
   T3=Tau(3);
@@ -68,7 +68,7 @@ Gamma_red= [  qdd1, (R1^2)*qd1, 0.5*qdd1 + 0.5*qdd1*cos(2.0*q2) - 1.0*qd1*qd2*si
   
   
   %Redondeamos
-%   M=vpa(M,5)
-%   V=vpa(V,5)
-%   G=vpa(G,5)
+  M=vpa(M,5)
+  V=vpa(V,5)
+  G=vpa(G,5)
 %   
