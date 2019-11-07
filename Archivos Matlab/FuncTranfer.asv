@@ -117,21 +117,23 @@ Ga = [ 0;
   G2s=tf(Tau(2)/10.8467,[10.8467 0 0]/10.8467);
   G3s=tf(Tau(3)/1.0899,[1.0899  0 0]/1.0899);
   
-  Tauc=1/15;
-  K1=19479;
-  K2=24405;
-  K3=2802.6;
-  C1s=tf(K1*[Tauc 1],1);
-  C2s=tf(K2*[Tauc 1],1);
-  C3s=tf(K3*[Tauc 1],1);
+  Tauc=1/10;
+  K1=146090;
+  K2=183040;
+  K3=21019;
+  C1s=tf(K1*conv([Tauc 1],[Tauc 1]),[1 0]);
+  C2s=tf(K2*conv([Tauc 1],[Tauc 1]),[1 0]);
+  C3s=tf(K3*conv([Tauc 1],[Tauc 1]),[1 0]);
   
-  Td1=Tauc;  
-  Td2=Tauc;
-  Td3=Tauc;
-  Kp1=K1*Tauc;
-  Kp2=K2*Tauc;
-  Kp3=K3*Tauc;
-
+  Ti1=2*Tauc;
+  Ti2=2*Tauc;
+  Ti3=2*Tauc;
+  Td1=(Tauc^2)/Ti1;  
+  Td2=(Tauc^2)/Ti2;
+  Td3=(Tauc^2)/Ti3;
+  Kp1=K1*Ti1;
+  Kp2=K2*Ti2;
+  Kp3=K3*Ti3;
   
   %%
   % PID linealizando la M 
@@ -160,33 +162,14 @@ Ga = [ 0;
   Kp3=K3*Ti3;
   
   %%
-  %PI PAR CALCULADO (LINEALIZAMOS TODO)
-  G1s=tf(Tau(1),[1 0 0]);
-  G2s=tf(Tau(2),[1 0 0]);
-  G3s=tf(Tau(3),[1 0 0]);
-  
-  Tauc=1/10;
-  K1=13500;
-  K2=16875;
-  K3=19286;
-  C1s=tf(K1*[Tauc 1],1);
-  C2s=tf(K2*[Tauc 1],1);
-  C3s=tf(K3*[Tauc 1],1);
-  
-  Td1=Tauc;  
-  Td2=Tauc;
-  Td3=Tauc;
-  Kp1=K1*Tauc;
-  Kp2=K2*Tauc;
-  Kp3=K3*Tauc;
-  
-  %%
-  %PID PAR CALCULADO (LINEALIZAMOS TODO)
+   %PAR CALCULADO (LINEALIZAMOS TODO)
+% Tau=[Im1*R1*K(1,1);Im2*R2*K(2,2);Im3*R3*K(3,3)];
   
   G1s=tf(Tau(1),[1 0 0]);
   G2s=tf(Tau(2),[1 0 0]);
   G3s=tf(Tau(3),[1 0 0]);
 
+  %PID primero porque los loles
   
   Tauc=1/10;
   K1=13500;

@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.49"
+    ComputedModelVersion    "1.51"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -64,32 +64,20 @@ Model {
 	$ClassName		"Simulink.ExplorerBarInfo"
 	Visible			[1]
       }
-      Array {
-	Type			"Simulink.EditorInfo"
-	Dimension		2
-	Object {
-	  $ObjectID		  5
-	  IsActive		  [1]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
-	  Extents		  [1665.0, 711.0]
-	  ZoomFactor		  [0.59999999999999987]
-	  Offset		  [-306.311960341367, 528.25873557147042]
-	}
-	Object {
-	  $ObjectID		  6
-	  IsActive		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "90"
-	  Extents		  [1660.0, 700.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-10.0, 165.0]
-	}
-	PropName		"EditorsInfo"
+      Object {
+	$PropName		"EditorsInfo"
+	$ObjectID		5
+	$ClassName		"Simulink.EditorInfo"
+	IsActive		[1]
+	ViewObjType		"SimulinkTopLevel"
+	LoadSaveID		"0"
+	Extents			[1665.0, 711.0]
+	ZoomFactor		[0.6]
+	Offset			[-188.97862700803302, 455.19879292653951]
       }
       Object {
 	$PropName		"DockComponentsInfo"
-	$ObjectID		7
+	$ObjectID		6
 	$ClassName		"Simulink.DockComponentInfo"
 	Type			"GLUE2:PropertyInspector"
 	ID			"Property Inspector"
@@ -119,9 +107,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "rafap"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Nov 06 17:18:22 2019"
-  RTWModifiedTimeStamp	  494959577
-  ModelVersionFormat	  "1.%<AutoIncrement:49>"
+  LastModifiedDate	  "Thu Nov 07 13:06:31 2019"
+  RTWModifiedTimeStamp	  495026088
+  ModelVersionFormat	  "1.%<AutoIncrement:51>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -175,7 +163,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    8
+    $ObjectID		    7
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "Control"
     Array {
@@ -219,7 +207,7 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      9
+      $ObjectID		      8
       Version		      "1.18.0"
       DisabledProps	      []
       Description	      ""
@@ -227,7 +215,7 @@ Model {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  10
+	  $ObjectID		  9
 	  Version		  "1.18.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -268,7 +256,7 @@ Model {
 	  MinimalZcImpactIntegration off
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  11
+	  $ObjectID		  10
 	  Version		  "1.18.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -309,7 +297,7 @@ Model {
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  12
+	  $ObjectID		  11
 	  Version		  "1.18.0"
 	  Array {
 	    Type		    "Cell"
@@ -376,7 +364,7 @@ Model {
 	  LabelGuidedReuse	  off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  13
+	  $ObjectID		  12
 	  Version		  "1.18.0"
 	  Array {
 	    Type		    "Cell"
@@ -493,7 +481,7 @@ Model {
 	  UnitDatabase		  ""
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  14
+	  $ObjectID		  13
 	  Version		  "1.18.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -541,7 +529,7 @@ Model {
 	  UseSimulinkCoderFeatures on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  15
+	  $ObjectID		  14
 	  Version		  "1.18.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -560,7 +548,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  16
+	  $ObjectID		  15
 	  Version		  "1.18.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -590,7 +578,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  17
+	  $ObjectID		  16
 	  Version		  "1.18.0"
 	  Array {
 	    Type		    "Cell"
@@ -677,7 +665,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      18
+	      $ObjectID		      17
 	      Version		      "1.18.0"
 	      Array {
 		Type			"Cell"
@@ -765,7 +753,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      19
+	      $ObjectID		      18
 	      Version		      "1.18.0"
 	      Array {
 		Type			"Cell"
@@ -867,7 +855,7 @@ Model {
 	  }
 	}
 	SlCovCC.ConfigComp {
-	  $ObjectID		  20
+	  $ObjectID		  19
 	  Version		  "1.18.0"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
@@ -917,11 +905,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    9
+    $ObjectID		    8
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    21
+    $ObjectID		    20
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -1203,7 +1191,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "60"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "181"
+    SIDHighWatermark	    "187"
     Block {
       BlockType		      SubSystem
       Name		      "CONTROL DINAMICO"
@@ -1218,7 +1206,7 @@ Model {
       System {
 	Name			"CONTROL DINAMICO"
 	Location		[8, 8, 1390, 752]
-	Open			on
+	Open			off
 	PortBlocksUseCompactNotation off
 	SetDomainSpec		off
 	DomainSpecType		"Deduce"
@@ -2267,7 +2255,7 @@ Model {
       RequestExecContextInheritance off
       System {
 	Name			"MODELO ESTIMADO"
-	Location		[-8, -8, 1374, 736]
+	Location		[8, 8, 1390, 752]
 	Open			off
 	PortBlocksUseCompactNotation off
 	SetDomainSpec		off
@@ -2450,7 +2438,7 @@ Model {
       RequestExecContextInheritance off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		22
+	$ObjectID		21
 	$ClassName		"Simulink.Mask"
 	Type			"Control y Programación de Robots (4 GIERM)"
 	Description		"Robot de 3 grados de libertad RRR"
@@ -2460,56 +2448,56 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  8
 	  Object {
-	    $ObjectID		    23
+	    $ObjectID		    22
 	    Type		    "edit"
 	    Name		    "NGrupo"
 	    Prompt		    "Nº de GRUPO"
 	    Value		    "13"
 	  }
 	  Object {
-	    $ObjectID		    24
+	    $ObjectID		    23
 	    Type		    "edit"
 	    Name		    "q1_ini"
 	    Prompt		    "q1 inicial  (rad)"
 	    Value		    "0"
 	  }
 	  Object {
-	    $ObjectID		    25
+	    $ObjectID		    24
 	    Type		    "edit"
 	    Name		    "q2_ini"
 	    Prompt		    "q2 inicial (rad)"
 	    Value		    "0"
 	  }
 	  Object {
-	    $ObjectID		    26
+	    $ObjectID		    25
 	    Type		    "edit"
 	    Name		    "q3_ini"
 	    Prompt		    "q3_inicial (rad)"
 	    Value		    "0"
 	  }
 	  Object {
-	    $ObjectID		    27
+	    $ObjectID		    26
 	    Type		    "checkbox"
 	    Name		    "Bl_q1"
 	    Prompt		    "Bloqueo q1"
 	    Value		    "off"
 	  }
 	  Object {
-	    $ObjectID		    28
+	    $ObjectID		    27
 	    Type		    "checkbox"
 	    Name		    "Bl_q2"
 	    Prompt		    "Bloqueo q2"
 	    Value		    "off"
 	  }
 	  Object {
-	    $ObjectID		    29
+	    $ObjectID		    28
 	    Type		    "checkbox"
 	    Name		    "Bl_q3"
 	    Prompt		    "Bloqueo q3"
 	    Value		    "off"
 	  }
 	  Object {
-	    $ObjectID		    30
+	    $ObjectID		    29
 	    Type		    "checkbox"
 	    Name		    "AccionamientoDirecto"
 	    Prompt		    "Accionamiento directo"

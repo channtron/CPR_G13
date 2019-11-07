@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.49"
+    ComputedModelVersion    "1.50"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -69,7 +69,7 @@ Model {
 	Dimension		2
 	Object {
 	  $ObjectID		  5
-	  IsActive		  [1]
+	  IsActive		  [0]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [1665.0, 711.0]
@@ -78,10 +78,10 @@ Model {
 	}
 	Object {
 	  $ObjectID		  6
-	  IsActive		  [0]
+	  IsActive		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "60"
-	  Extents		  [1660.0, 700.0]
+	  Extents		  [1665.0, 711.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, 0.0]
 	}
@@ -117,11 +117,11 @@ Model {
   Creator		  "mortega"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "usuario"
+  LastModifiedBy	  "rafap"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Oct 23 22:56:07 2019"
-  RTWModifiedTimeStamp	  493772163
-  ModelVersionFormat	  "1.%<AutoIncrement:49>"
+  LastModifiedDate	  "Mon Nov 04 18:32:48 2019"
+  RTWModifiedTimeStamp	  494785032
+  ModelVersionFormat	  "1.%<AutoIncrement:50>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1410,7 +1410,7 @@ Model {
 	  Position		  [140, 74, 210, 116]
 	  ZOrder		  -2
 	  BackgroundColor	  "red"
-	  MATLABFcn		  "ModeloDinamicoEstimado_G13"
+	  MATLABFcn		  "ModeloDinamicoEstimadoRuido_G13"
 	  OutputDimensions	  "3"
 	}
 	Block {
@@ -2148,7 +2148,7 @@ Model {
     Annotation {
       SID		      "16"
       Name		      "Im (A)"
-      Position		      [603, 187, 648, 207]
+      Position		      [603, 187, 650, 207]
       InternalMargins	      [0, 0, 0, 0]
       ForegroundColor	      "red"
       ZOrder		      -1
@@ -2158,7 +2158,7 @@ Model {
     Annotation {
       SID		      "17"
       Name		      "q  (rad)"
-      Position		      [939, 117, 992, 137]
+      Position		      [939, 117, 995, 137]
       InternalMargins	      [0, 0, 0, 0]
       ForegroundColor	      "blue"
       ZOrder		      -2
@@ -2168,7 +2168,7 @@ Model {
     Annotation {
       SID		      "18"
       Name		      "qd (rad/s)"
-      Position		      [929, 187, 999, 207]
+      Position		      [929, 187, 1003, 207]
       InternalMargins	      [0, 0, 0, 0]
       ForegroundColor	      "blue"
       ZOrder		      -3
@@ -2178,7 +2178,7 @@ Model {
     Annotation {
       SID		      "19"
       Name		      "qpp (rad/s2)"
-      Position		      [920, 257, 1008, 277]
+      Position		      [920, 257, 1013, 277]
       InternalMargins	      [0, 0, 0, 0]
       ForegroundColor	      "blue"
       ZOrder		      -4
@@ -2188,7 +2188,7 @@ Model {
     Annotation {
       SID		      "49"
       Name		      "Im (A)"
-      Position		      [603, 187, 648, 207]
+      Position		      [603, 187, 650, 207]
       InternalMargins	      [0, 0, 0, 0]
       ForegroundColor	      "red"
       ZOrder		      -1
@@ -2198,7 +2198,7 @@ Model {
     Annotation {
       SID		      "50"
       Name		      "Im1 (A)"
-      Position		      [508, 167, 562, 187]
+      Position		      [508, 167, 564, 187]
       InternalMargins	      [0, 0, 0, 0]
       ForegroundColor	      "red"
       ZOrder		      -2
@@ -2208,7 +2208,7 @@ Model {
     Annotation {
       SID		      "51"
       Name		      "Im2 (A)"
-      Position		      [503, 232, 557, 252]
+      Position		      [503, 232, 559, 252]
       InternalMargins	      [0, 0, 0, 0]
       ForegroundColor	      "red"
       ZOrder		      -3
@@ -2218,7 +2218,7 @@ Model {
     Annotation {
       SID		      "52"
       Name		      "Im3 (A)"
-      Position		      [493, 297, 547, 317]
+      Position		      [493, 297, 549, 317]
       InternalMargins	      [0, 0, 0, 0]
       ForegroundColor	      "red"
       ZOrder		      -4

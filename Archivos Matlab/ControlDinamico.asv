@@ -1,4 +1,4 @@
-function [Tau] = ControlDinamico(in)
+function [I] = ControlDinamico(in)
 %Esta funcion implementa un controlador, tanto continuo como discreto
 %   Detailed explanation goes here
 qr1        = in(1);
@@ -35,36 +35,38 @@ end
 
 %CONTROLADORES
 %------------------------------------------------------------------------
+R1=1; R2=1; R3=1; 
+g=9.81;
 %Definimos las constantes Kp Ki Kd
-%PI Sin Precompensar
-Kp=1.0e3*[1.2986;1.627;2.8026];
-Ki=[0;0;0];
-Kd=[6.4989;4.6009;2.3059];
+%PI Sin Precompensar (hecho pero sale caca)
+% Kp=1.0e3*[1.2986;1.627;0.18684];
+% Ti=[0;0;0];
+% Td=[ 0.0667; 0.0667; 0.0667];
 
-%PI Precompensando V y G
-% Kp=1.0e6*[3.5481;2.5119;1.2589];
-% Ki=[0;0;0];
-% Kd=1.0e4*[6.4989;4.6009;2.3059];
+%PI Precompensando V y G (igual que sin precompensar)
+% Kp=1.0e3*[1.298;1.627;0.18684];
+% Ti=[0;0;0];
+% Td=[0.0667;0.0667;0.0667];
 
-%PI por par calculado
-% Kp=1.0e3*[7.6736 7.6736 7.6736];
-% Ki=[0;0;0];
-% Kd=[140.5539 140.5539 140.5539];
+%PI por par calculado (este es el unico PI que funciona bien de verdad)
+% Kp=[1350 1687.5 1928.6];
+% Ti=[0;0;0];
+% Td=[0.1 0.1 0.1];
 
-%PID Sin Precompensar
-% Kp=1e6*[1.2264;0.8484;0.4252];
-% Ki=1e6*[8.1091;5.6101;2.8117];
-% Kd=1e4*[2.3184;1.6039;0.8039];
+%PID Sin Precompensar (hecho y sale guay)
+% Kp=[29218;36608;4203.8];
+% Ti=[0.2;0.2;0.2];
+% Td=[0.05;0.05;0.05];
 
-%PID compensando Va y Ga
-% Kp=1e6*[1.1985;0.8484;0.4252];
-% Ki=1e6*[7.9245;5.6101;2.8117];
-% Kd=1e4*[2.2656;1.6039;0.8039];
+%PID compensando Va y Ga (hecho y sale)
+% Kp=[29218;36608;4203.8];
+% Ti=[0.2;0.2;0.2];
+% Td=[0.05;0.05;0.05];
 
-%PID por par calculado
-% Kp=1e3*[7.5617;7.5617;7.5617];
-% Ki=[50000;50000;50000];
-% Kd=[142.9486;142.9486;142.9486];
+%PID por par calculado (listo c:)
+% Kp=[2700;3375;3857.2];
+% Ti=[0.2;0.2;0.2];
+% Td=[0.05;0.05;0.05];
 %-----------------------------------------------------------------------
 
 %Calculamos los errores
@@ -73,7 +75,12 @@ Err_qd=qdr-qd;
 
 %Calculamos el control
 Int_err=Int_err+Tm*Err_q;
-U=Kp.*Err_q + Kd.*Err_qd + Ki.*Int_err;
+
+%PID
+% U=Kp.*Err_q + Kp.*Td.*Err_qd + Kp./Ti.*Int_err;
+
+%PD
+U=Kp.*Err_q + Kp.*Td.*Err_qd;
 
 %Precompensar
 Ma= [ 1.9283*cos(2.0*q2 + q3) + 2.9292*cos(2.0*q2) + 1.9283*cos(q3) + 0.54422*cos(2.0*q2 + 2.0*q3) + 3.4915,  0,  0;
@@ -88,8 +95,9 @@ Va= [ -8.4703e-22*qd1*(- 6.4183e15*R1^2 + 4.553e21*qd2*sin(2.0*q2 + q3) + 2.2765
 Ga = [ 0;
     g*(1.9283*cos(q2 + q3) + 6.742*cos(q2));
 	1.9283*g*cos(q2 + q3)];
- 
-%Tau=U+Ga; %Precompensando la gravedad
-%Tau=U+Va+Ga; %Precompensando Va y Ga
-%Tau=Va+Ga+Ma*(U+qddr); %Precompensando todo
+
+% I=U;    %Sin precompensar nada
+I=U+Ga; %Precompensando la gravedad
+% I=U+Va+Ga; %Precompensando Va y Ga
+% I=Va+Ga+Ma*(U+qddr); %Precompensando todo
 
