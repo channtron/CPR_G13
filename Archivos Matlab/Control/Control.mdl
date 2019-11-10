@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.51"
+    ComputedModelVersion    "1.52"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -47,7 +47,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [8.0, 8.0, 1382.0, 744.0]
+      Location		      [6.0, 31.0, 1383.0, 744.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -64,20 +64,32 @@ Model {
 	$ClassName		"Simulink.ExplorerBarInfo"
 	Visible			[1]
       }
-      Object {
-	$PropName		"EditorsInfo"
-	$ObjectID		5
-	$ClassName		"Simulink.EditorInfo"
-	IsActive		[1]
-	ViewObjType		"SimulinkTopLevel"
-	LoadSaveID		"0"
-	Extents			[1665.0, 711.0]
-	ZoomFactor		[0.6]
-	Offset			[-188.97862700803302, 455.19879292653951]
+      Array {
+	Type			"Simulink.EditorInfo"
+	Dimension		2
+	Object {
+	  $ObjectID		  5
+	  IsActive		  [1]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [1666.0, 711.0]
+	  ZoomFactor		  [0.59999999999999976]
+	  Offset		  [-62.64529367469936, 483.89878442294395]
+	}
+	Object {
+	  $ObjectID		  6
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "197"
+	  Extents		  [1665.0, 711.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-380.30000000000007, -131.99999999999997]
+	}
+	PropName		"EditorsInfo"
       }
       Object {
 	$PropName		"DockComponentsInfo"
-	$ObjectID		6
+	$ObjectID		7
 	$ClassName		"Simulink.DockComponentInfo"
 	Type			"GLUE2:PropertyInspector"
 	ID			"Property Inspector"
@@ -93,7 +105,7 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAAB4AP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAANAD///8AAAauAAADEAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAANAD///8AAAavAAADEAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAACR/////wAAAAAAAAAA/////wEAAAEE/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAGV/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAPG/////wAAAAAAAAAA/"
@@ -107,9 +119,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "rafap"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Nov 07 13:06:31 2019"
-  RTWModifiedTimeStamp	  495026088
-  ModelVersionFormat	  "1.%<AutoIncrement:51>"
+  LastModifiedDate	  "Sun Nov 10 18:28:16 2019"
+  RTWModifiedTimeStamp	  495292864
+  ModelVersionFormat	  "1.%<AutoIncrement:52>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -163,7 +175,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    7
+    $ObjectID		    8
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "Control"
     Array {
@@ -207,15 +219,15 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      8
+      $ObjectID		      9
       Version		      "1.18.0"
       DisabledProps	      []
       Description	      ""
       Array {
 	Type			"Handle"
-	Dimension		9
+	Dimension		10
 	Simulink.SolverCC {
-	  $ObjectID		  9
+	  $ObjectID		  10
 	  Version		  "1.18.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -256,7 +268,7 @@ Model {
 	  MinimalZcImpactIntegration off
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  10
+	  $ObjectID		  11
 	  Version		  "1.18.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -297,7 +309,7 @@ Model {
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  11
+	  $ObjectID		  12
 	  Version		  "1.18.0"
 	  Array {
 	    Type		    "Cell"
@@ -364,7 +376,7 @@ Model {
 	  LabelGuidedReuse	  off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  12
+	  $ObjectID		  13
 	  Version		  "1.18.0"
 	  Array {
 	    Type		    "Cell"
@@ -481,7 +493,7 @@ Model {
 	  UnitDatabase		  ""
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  13
+	  $ObjectID		  14
 	  Version		  "1.18.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -529,7 +541,7 @@ Model {
 	  UseSimulinkCoderFeatures on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  14
+	  $ObjectID		  15
 	  Version		  "1.18.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -548,7 +560,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  15
+	  $ObjectID		  16
 	  Version		  "1.18.0"
 	  DisabledProps		  []
 	  Description		  ""
@@ -578,7 +590,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  16
+	  $ObjectID		  17
 	  Version		  "1.18.0"
 	  Array {
 	    Type		    "Cell"
@@ -665,7 +677,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      17
+	      $ObjectID		      18
 	      Version		      "1.18.0"
 	      Array {
 		Type			"Cell"
@@ -753,7 +765,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      18
+	      $ObjectID		      19
 	      Version		      "1.18.0"
 	      Array {
 		Type			"Cell"
@@ -855,7 +867,7 @@ Model {
 	  }
 	}
 	SlCovCC.ConfigComp {
-	  $ObjectID		  19
+	  $ObjectID		  20
 	  Version		  "1.18.0"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
@@ -894,6 +906,111 @@ Model {
 	  CovStopTime		  0
 	  CovMcdcMode		  "Masking"
 	}
+	SSC.SimscapeCC {
+	  $ObjectID		  21
+	  Version		  "1.0"
+	  DisabledProps		  []
+	  Description		  ""
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    MECH.SimMechanicsCC {
+	      $ObjectID		      22
+	      Version		      "1.18.0"
+	      DisabledProps	      []
+	      Description	      ""
+	      Name		      "SimscapeMultibody1G"
+	      WarnOnRedundantConstraints on
+	      WarnOnSingularInitialAssembly off
+	      ShowCutJoints	      off
+	      VisOnUpdateDiagram      off
+	      VisDuringSimulation     off
+	      EnableVisSimulationTime on
+	      VisSampleTime	      "0"
+	      DisableBodyVisControl   off
+	      ShowCG		      on
+	      ShowCS		      on
+	      ShowOnlyPortCS	      off
+	      HighlightModel	      on
+	      FramesToBeSkipped	      "0"
+	      AnimationDelay	      "3"
+	      RecordAVI		      off
+	      CompressAVI	      on
+	      AviFileName	      ""
+	      AutoFitVis	      "off"
+	      EnableSelection	      on
+	      LastVizWinPosition      "[-1 -1 -1 -1]"
+	      CamPosition	      "[0 0 0]"
+	      CamTarget		      "[0 0 -1]"
+	      CamUpVector	      "[0 1 0]"
+	      CamHeight		      "-1"
+	      CamViewAngle	      "0"
+	      VisBackgroundColor      "[0.9 0.9 0.95]"
+	      DefaultBodyColor	      "[1 0 0]"
+	      MDLBodyVisualizationType "Convex hull from body CS locations"
+	      OVRRIDBodyVisualizationType "NONE"
+	      VisConfigFile	      ""
+	    }
+	    simmechanics.ConfigurationSet {
+	      $ObjectID		      23
+	      Version		      "1.18.0"
+	      DisabledProps	      []
+	      Description	      "Simscape Multibody"
+	      Array {
+		Type			"Handle"
+		Dimension		2
+		simmechanics.DiagnosticsConfigSet {
+		  $ObjectID		  24
+		  Version		  "1.18.0"
+		  DisabledProps		  []
+		  Description		  "Diagnostics"
+		  Name			  "DiagnosticsConfigSet"
+		  SimMechanicsInvalidVisualProperty "warning"
+		  SimMechanicsCrossSectionNullEdge "warning"
+		  SimMechanicsUnconnectedFramePorts "warning"
+		  SimMechanicsUnconnectedGeometryPorts "warning"
+		  SimMechanicsRedundantBlock "warning"
+		  SimMechanicsConflictingReferenceFrames "warning"
+		  SimMechanicsRigidlyBoundBlock	"error"
+		  SimMechanicsUnsatisfiedHighPriorityTargets "warning"
+		  SimMechanicsJointTargetOverSpecification "error"
+		}
+		simmechanics.ExplorerConfigSet {
+		  $ObjectID		  25
+		  Version		  "1.18.0"
+		  DisabledProps		  []
+		  Description		  "Explorer"
+		  Name			  "ExplorerConfigSet"
+		  SimMechanicsOpenEditorOnUpdate on
+		  InternalSimMechanicsExplorerSettings ""
+		}
+		PropName		"Components"
+	      }
+	      Name		      "SimscapeMultibody"
+	    }
+	    PropName		    "Components"
+	  }
+	  Name			  "Simscape"
+	  EditingMode		  "Full"
+	  ExplicitSolverDiagnosticOptions "warning"
+	  GlobalZcOffDiagnosticOptions "warning"
+	  SimscapeNormalizeSystem on
+	  SimscapeNominalValues	  "[{\"value\":\"1\",\"unit\":\"A\"},{\"value\":\"1\",\"unit\":\"bar\"},{\"value\":\"1\",\"un"
+	  "it\":\"cm^2\"},{\"value\":\"1\",\"unit\":\"cm^3/s\"},{\"value\":\"1\",\"unit\":\"kJ/kg\"},{\"value\":\"1\",\"unit\""
+	  ":\"kW\"},{\"value\":\"1\",\"unit\":\"l\"},{\"value\":\"1\",\"unit\":\"N\"},{\"value\":\"1\",\"unit\":\"N*m\"},{\"va"
+	  "lue\":\"1\",\"unit\":\"V\"}]"
+	  SimscapeLogType	  "none"
+	  SimscapeLogSimulationStatistics off
+	  SimscapeLogToSDI	  off
+	  SimscapeLogOpenViewer	  off
+	  SimscapeLogName	  "simlog"
+	  SimscapeLogDecimation	  1
+	  SimscapeLogLimitData	  on
+	  SimscapeLogDataHistory  5000
+	  SimscapeUseOperatingPoints off
+	  SimscapeOperatingPoint  ""
+	  SelectedTab		  ""
+	}
 	PropName		"Components"
       }
       Name		      "Configuration"
@@ -905,11 +1022,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    8
+    $ObjectID		    9
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    20
+    $ObjectID		    26
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -1171,10 +1288,18 @@ Model {
       NumInputs		      "1"
       SampleTime	      "0"
     }
+    Block {
+      BlockType		      UniformRandomNumber
+      Minimum		      "-1"
+      Maximum		      "1"
+      Seed		      "0"
+      SampleTime	      "-1"
+      VectorParams1D	      on
+    }
   }
   System {
     Name		    "Control"
-    Location		    [8, 8, 1390, 752]
+    Location		    [6, 31, 1389, 775]
     Open		    on
     PortBlocksUseCompactNotation off
     SetDomainSpec	    off
@@ -1191,7 +1316,18 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "60"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "187"
+    SIDHighWatermark	    "221"
+    Block {
+      BlockType		      Sum
+      Name		      "Add"
+      SID		      "205"
+      Ports		      [2, 1]
+      Position		      [1410, 957, 1440, 988]
+      ZOrder		      83
+      InputSameDT	      off
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
     Block {
       BlockType		      SubSystem
       Name		      "CONTROL DINAMICO"
@@ -2216,7 +2352,7 @@ Model {
       BlockType		      Goto
       Name		      "Goto3"
       SID		      "136"
-      Position		      [1405, 950, 1445, 980]
+      Position		      [1615, 960, 1655, 990]
       ZOrder		      62
       BackgroundColor	      "magenta"
       GotoTag		      "qd"
@@ -2244,17 +2380,18 @@ Model {
     }
     Block {
       BlockType		      SubSystem
-      Name		      "MODELO ESTIMADO"
-      SID		      "60"
+      Name		      "MODELO ESTIMADO1"
+      SID		      "188"
       Ports		      [1, 3]
-      Position		      [1135, 873, 1300, 1057]
-      ZOrder		      34
+      Position		      [1135, 1128, 1300, 1312]
+      ZOrder		      79
       BackgroundColor	      "red"
+      Commented		      "on"
       FontName		      "Arial Narrow"
       FontSize		      14
       RequestExecContextInheritance off
       System {
-	Name			"MODELO ESTIMADO"
+	Name			"MODELO ESTIMADO1"
 	Location		[8, 8, 1390, 752]
 	Open			off
 	PortBlocksUseCompactNotation off
@@ -2265,16 +2402,16 @@ Model {
 	ScreenColor		"white"
 	PaperOrientation	"landscape"
 	PaperPositionMode	"auto"
-	PaperType		"A4"
-	PaperUnits		"centimeters"
-	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
 	Block {
 	  BlockType		  Inport
 	  Name			  "Imotor"
-	  SID			  "61"
+	  SID			  "189"
 	  Position		  [30, 108, 60, 122]
 	  ZOrder		  -1
 	  IconDisplay		  "Port number"
@@ -2282,7 +2419,7 @@ Model {
 	Block {
 	  BlockType		  Integrator
 	  Name			  "Integrator"
-	  SID			  "63"
+	  SID			  "190"
 	  Ports			  [1, 1]
 	  Position		  [250, 80, 280, 110]
 	  ZOrder		  -3
@@ -2291,7 +2428,7 @@ Model {
 	Block {
 	  BlockType		  Integrator
 	  Name			  "Integrator1"
-	  SID			  "64"
+	  SID			  "191"
 	  Ports			  [1, 1]
 	  Position		  [330, 80, 360, 110]
 	  ZOrder		  -4
@@ -2300,7 +2437,7 @@ Model {
 	Block {
 	  BlockType		  MATLABFcn
 	  Name			  "Modelo_Dinamico_Est"
-	  SID			  "62"
+	  SID			  "192"
 	  Ports			  [1, 1]
 	  Position		  [140, 74, 210, 116]
 	  ZOrder		  -2
@@ -2311,7 +2448,7 @@ Model {
 	Block {
 	  BlockType		  Mux
 	  Name			  "Mux"
-	  SID			  "65"
+	  SID			  "193"
 	  Ports			  [3, 1]
 	  Position		  [105, 66, 110, 124]
 	  ZOrder		  -5
@@ -2322,7 +2459,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "q"
-	  SID			  "66"
+	  SID			  "194"
 	  Position		  [465, 88, 495, 102]
 	  ZOrder		  -6
 	  IconDisplay		  "Port number"
@@ -2330,7 +2467,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "qp"
-	  SID			  "67"
+	  SID			  "195"
 	  Position		  [470, 138, 500, 152]
 	  ZOrder		  -7
 	  Port			  "2"
@@ -2339,7 +2476,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "qpp"
-	  SID			  "68"
+	  SID			  "196"
 	  Position		  [470, 188, 500, 202]
 	  ZOrder		  -8
 	  Port			  "3"
@@ -2347,25 +2484,25 @@ Model {
 	}
 	Line {
 	  ZOrder		  1
-	  SrcBlock		  "Imotor"
+	  SrcBlock		  "Mux"
 	  SrcPort		  1
-	  DstBlock		  "Mux"
-	  DstPort		  3
+	  DstBlock		  "Modelo_Dinamico_Est"
+	  DstPort		  1
 	}
 	Line {
 	  ZOrder		  2
-	  SrcBlock		  "Integrator1"
+	  SrcBlock		  "Modelo_Dinamico_Est"
 	  SrcPort		  1
-	  Points		  [30, 0]
+	  Points		  [10, 0]
 	  Branch {
 	    ZOrder		    3
-	    Points		    [0, -60; -330, 0; 0, 40]
-	    DstBlock		    "Mux"
+	    DstBlock		    "Integrator"
 	    DstPort		    1
 	  }
 	  Branch {
 	    ZOrder		    4
-	    DstBlock		    "q"
+	    Points		    [0, 100]
+	    DstBlock		    "qpp"
 	    DstPort		    1
 	  }
 	}
@@ -2376,9 +2513,8 @@ Model {
 	  Points		  [15, 0]
 	  Branch {
 	    ZOrder		    6
-	    Points		    [0, -45; -220, 0; 0, 45]
-	    DstBlock		    "Mux"
-	    DstPort		    2
+	    DstBlock		    "Integrator1"
+	    DstPort		    1
 	  }
 	  Branch {
 	    ZOrder		    7
@@ -2388,33 +2524,34 @@ Model {
 	  }
 	  Branch {
 	    ZOrder		    8
-	    DstBlock		    "Integrator1"
-	    DstPort		    1
+	    Points		    [0, -45; -220, 0; 0, 45]
+	    DstBlock		    "Mux"
+	    DstPort		    2
 	  }
 	}
 	Line {
 	  ZOrder		  9
-	  SrcBlock		  "Modelo_Dinamico_Est"
+	  SrcBlock		  "Integrator1"
 	  SrcPort		  1
-	  Points		  [10, 0]
+	  Points		  [30, 0]
 	  Branch {
 	    ZOrder		    10
-	    Points		    [0, 100]
-	    DstBlock		    "qpp"
+	    DstBlock		    "q"
 	    DstPort		    1
 	  }
 	  Branch {
 	    ZOrder		    11
-	    DstBlock		    "Integrator"
+	    Points		    [0, -60; -330, 0; 0, 40]
+	    DstBlock		    "Mux"
 	    DstPort		    1
 	  }
 	}
 	Line {
 	  ZOrder		  12
-	  SrcBlock		  "Mux"
+	  SrcBlock		  "Imotor"
 	  SrcPort		  1
-	  DstBlock		  "Modelo_Dinamico_Est"
-	  DstPort		  1
+	  DstBlock		  "Mux"
+	  DstPort		  3
 	}
       }
     }
@@ -2433,12 +2570,13 @@ Model {
       Ports		      [1, 3]
       Position		      [700, 380, 915, 590]
       ZOrder		      -6
+      Commented		      "on"
       FontSize		      16
       FontWeight	      "bold"
       RequestExecContextInheritance off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		21
+	$ObjectID		27
 	$ClassName		"Simulink.Mask"
 	Type			"Control y Programación de Robots (4 GIERM)"
 	Description		"Robot de 3 grados de libertad RRR"
@@ -2448,56 +2586,56 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  8
 	  Object {
-	    $ObjectID		    22
+	    $ObjectID		    28
 	    Type		    "edit"
 	    Name		    "NGrupo"
 	    Prompt		    "Nº de GRUPO"
 	    Value		    "13"
 	  }
 	  Object {
-	    $ObjectID		    23
+	    $ObjectID		    29
 	    Type		    "edit"
 	    Name		    "q1_ini"
 	    Prompt		    "q1 inicial  (rad)"
 	    Value		    "0"
 	  }
 	  Object {
-	    $ObjectID		    24
+	    $ObjectID		    30
 	    Type		    "edit"
 	    Name		    "q2_ini"
 	    Prompt		    "q2 inicial (rad)"
 	    Value		    "0"
 	  }
 	  Object {
-	    $ObjectID		    25
+	    $ObjectID		    31
 	    Type		    "edit"
 	    Name		    "q3_ini"
 	    Prompt		    "q3_inicial (rad)"
 	    Value		    "0"
 	  }
 	  Object {
-	    $ObjectID		    26
+	    $ObjectID		    32
 	    Type		    "checkbox"
 	    Name		    "Bl_q1"
 	    Prompt		    "Bloqueo q1"
 	    Value		    "off"
 	  }
 	  Object {
-	    $ObjectID		    27
+	    $ObjectID		    33
 	    Type		    "checkbox"
 	    Name		    "Bl_q2"
 	    Prompt		    "Bloqueo q2"
 	    Value		    "off"
 	  }
 	  Object {
-	    $ObjectID		    28
+	    $ObjectID		    34
 	    Type		    "checkbox"
 	    Name		    "Bl_q3"
 	    Prompt		    "Bloqueo q3"
 	    Value		    "off"
 	  }
 	  Object {
-	    $ObjectID		    29
+	    $ObjectID		    35
 	    Type		    "checkbox"
 	    Name		    "AccionamientoDirecto"
 	    Prompt		    "Accionamiento directo"
@@ -2602,12 +2740,197 @@ Model {
       }
     }
     Block {
+      BlockType		      SubSystem
+      Name		      "R3GDL1"
+      SID		      "197"
+      Ports		      [1, 3]
+      Position		      [1120, 860, 1335, 1070]
+      ZOrder		      80
+      FontSize		      16
+      FontWeight	      "bold"
+      RequestExecContextInheritance off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		36
+	$ClassName		"Simulink.Mask"
+	Type			"Control y Programación de Robots (4 GIERM)"
+	Description		"Robot de 3 grados de libertad RRR"
+	Display			"image(imread('R3GDL_RRR.JPG'));\nport_label('output', 1, 'q');\nport_label('output', 2, 'qd');\nport_label"
+	"('output', 3, 'qdd');\nport_label('input', 1, 'Im')"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  8
+	  Object {
+	    $ObjectID		    37
+	    Type		    "edit"
+	    Name		    "NGrupo"
+	    Prompt		    "Nº de GRUPO"
+	    Value		    "13"
+	  }
+	  Object {
+	    $ObjectID		    38
+	    Type		    "edit"
+	    Name		    "q1_ini"
+	    Prompt		    "q1 inicial  (rad)"
+	    Value		    "0"
+	  }
+	  Object {
+	    $ObjectID		    39
+	    Type		    "edit"
+	    Name		    "q2_ini"
+	    Prompt		    "q2 inicial (rad)"
+	    Value		    "0"
+	  }
+	  Object {
+	    $ObjectID		    40
+	    Type		    "edit"
+	    Name		    "q3_ini"
+	    Prompt		    "q3_inicial (rad)"
+	    Value		    "0"
+	  }
+	  Object {
+	    $ObjectID		    41
+	    Type		    "checkbox"
+	    Name		    "Bl_q1"
+	    Prompt		    "Bloqueo q1"
+	    Value		    "off"
+	  }
+	  Object {
+	    $ObjectID		    42
+	    Type		    "checkbox"
+	    Name		    "Bl_q2"
+	    Prompt		    "Bloqueo q2"
+	    Value		    "off"
+	  }
+	  Object {
+	    $ObjectID		    43
+	    Type		    "checkbox"
+	    Name		    "Bl_q3"
+	    Prompt		    "Bloqueo q3"
+	    Value		    "off"
+	  }
+	  Object {
+	    $ObjectID		    44
+	    Type		    "checkbox"
+	    Name		    "AccionamientoDirecto"
+	    Prompt		    "Accionamiento directo"
+	    Value		    "on"
+	  }
+	  PropName		  "Parameters"
+	}
+      }
+      System {
+	Name			"R3GDL1"
+	Location		[8, 8, 1390, 752]
+	Open			on
+	PortBlocksUseCompactNotation off
+	SetDomainSpec		off
+	DomainSpecType		"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Im"
+	  SID			  "198"
+	  Position		  [20, 88, 50, 102]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "S-Function"
+	  SID			  "199"
+	  Ports			  [1, 3]
+	  Position		  [85, 34, 215, 156]
+	  ZOrder		  -2
+	  FunctionName		  "R3GDL_RRR"
+	  Parameters		  "[q1_ini; q2_ini; q3_ini]; [Bl_q1; Bl_q2; Bl_q3]; AccionamientoDirecto; NGrupo"
+	  SFunctionDeploymentMode off
+	  EnableBusSupport	  off
+	  SFcnIsStateOwnerBlock	  off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "q"
+	  SID			  "200"
+	  Position		  [255, 48, 285, 62]
+	  ZOrder		  -3
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "qd"
+	  SID			  "201"
+	  Position		  [255, 88, 285, 102]
+	  ZOrder		  -4
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "qdd"
+	  SID			  "202"
+	  Position		  [255, 128, 285, 142]
+	  ZOrder		  -5
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "S-Function"
+	  SrcPort		  3
+	  DstBlock		  "qdd"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "S-Function"
+	  SrcPort		  2
+	  DstBlock		  "qd"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3
+	  SrcBlock		  "S-Function"
+	  SrcPort		  1
+	  DstBlock		  "q"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Im"
+	  SrcPort		  1
+	  DstBlock		  "S-Function"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
       BlockType		      Constant
       Name		      "Tiempo\ninicio"
       SID		      "148"
       Position		      [150, 945, 180, 975]
       ZOrder		      45
       Value		      "0.5"
+    }
+    Block {
+      BlockType		      UniformRandomNumber
+      Name		      "Uniform Random\nNumber"
+      SID		      "204"
+      Position		      [1365, 979, 1395, 1011]
+      ZOrder		      82
+      Minimum		      "-.15"
+      Maximum		      ".15"
+      SampleTime	      "Tm"
     }
     Block {
       BlockType		      Constant
@@ -2635,6 +2958,7 @@ Model {
       Position		      [965, 400, 1025, 430]
       ZOrder		      -7
       BackgroundColor	      "cyan"
+      Commented		      "on"
       VariableName	      "qs"
       MaxDataPoints	      "inf"
       SampleTime	      "1e-3"
@@ -2647,6 +2971,7 @@ Model {
       Position		      [965, 470, 1025, 500]
       ZOrder		      -8
       BackgroundColor	      "cyan"
+      Commented		      "on"
       VariableName	      "qps"
       MaxDataPoints	      "inf"
       SampleTime	      "1e-3"
@@ -2659,6 +2984,7 @@ Model {
       Position		      [970, 540, 1030, 570]
       ZOrder		      -9
       BackgroundColor	      "cyan"
+      Commented		      "on"
       VariableName	      "qpps"
       MaxDataPoints	      "inf"
       SampleTime	      "1e-3"
@@ -2704,7 +3030,7 @@ Model {
       Name		      "qpr2"
       SID		      "154"
       Ports		      [1]
-      Position		      [1445, 1000, 1475, 1030]
+      Position		      [1635, 1020, 1665, 1050]
       ZOrder		      71
       BackgroundColor	      "cyan"
       VariableName	      "qd"
@@ -2894,10 +3220,10 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      121
-      SrcBlock		      "MODELO ESTIMADO"
+      ZOrder		      173
+      SrcBlock		      "R3GDL1"
       SrcPort		      3
-      Points		      [9, 0; 0, 40]
+      Points		      [3, 0; 0, 30]
       DstBlock		      "qpr3"
       DstPort		      1
     }
@@ -2907,14 +3233,14 @@ Model {
       SrcPort		      1
       Points		      [64, 0]
       Branch {
-	ZOrder			123
+	ZOrder			177
 	Points			[0, -135]
 	DstBlock		"Im muestreado"
 	DstPort			1
       }
       Branch {
-	ZOrder			122
-	DstBlock		"MODELO ESTIMADO"
+	ZOrder			169
+	DstBlock		"R3GDL1"
 	DstPort			1
       }
     }
@@ -2934,20 +3260,20 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      117
-      SrcBlock		      "MODELO ESTIMADO"
+      ZOrder		      172
+      SrcBlock		      "R3GDL1"
       SrcPort		      1
-      Points		      [72, 0]
+      Points		      [37, 0]
       Branch {
-	ZOrder			118
-	Points			[0, 10]
-	DstBlock		"Goto2"
+	ZOrder			178
+	Points			[0, -45]
+	DstBlock		"qpr1"
 	DstPort			1
       }
       Branch {
-	ZOrder			89
-	Points			[0, -55]
-	DstBlock		"qpr1"
+	ZOrder			176
+	Points			[0, 20]
+	DstBlock		"Goto2"
 	DstPort			1
       }
     }
@@ -3002,21 +3328,12 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      120
-      SrcBlock		      "MODELO ESTIMADO"
+      ZOrder		      170
+      SrcBlock		      "R3GDL1"
       SrcPort		      2
-      Points		      [79, 0]
-      Branch {
-	ZOrder			99
-	Points			[0, 50]
-	DstBlock		"qpr2"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			98
-	DstBlock		"Goto3"
-	DstPort			1
-      }
+      Points		      [55, 0]
+      DstBlock		      "Add"
+      DstPort		      1
     }
     Line {
       ZOrder		      126
@@ -3109,6 +3426,31 @@ Model {
       SrcPort		      1
       DstBlock		      "Demux"
       DstPort		      1
+    }
+    Line {
+      ZOrder		      179
+      SrcBlock		      "Uniform Random\nNumber"
+      SrcPort		      1
+      Points		      [3, 0; 0, -15]
+      DstBlock		      "Add"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      195
+      SrcBlock		      "Add"
+      SrcPort		      1
+      Points		      [115, 0]
+      Branch {
+	ZOrder			186
+	Points			[0, 60]
+	DstBlock		"qpr2"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			184
+	DstBlock		"Goto3"
+	DstPort			1
+      }
     }
     Annotation {
       SID		      "16"

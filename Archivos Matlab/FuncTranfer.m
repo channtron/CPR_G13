@@ -160,7 +160,7 @@ Ga = [ 0;
   Kp3=K3*Ti3;
   
   %%
-  %PI PAR CALCULADO (LINEALIZAMOS TODO)
+  %PD PAR CALCULADO (LINEALIZAMOS TODO)
   G1s=tf(Tau(1),[1 0 0]);
   G2s=tf(Tau(2),[1 0 0]);
   G3s=tf(Tau(3),[1 0 0]);
@@ -205,3 +205,38 @@ Ga = [ 0;
   Kp1=K1*Ti1;
   Kp2=K2*Ti2;
   Kp3=K3*Ti3;
+  
+  %%
+  
+  G1s=tf(Tau(1)/5.4365e-6,[10.8215 5.4365e-6 0]/5.4365e-6);
+  G2s=tf(Tau(2)/8.6930e-6,[10.8467  8.6930e-6 0]/8.6930e-6);
+  G3s=tf(Tau(3)/6.0046e-5,[1.0899  6.0046e-5 0]/6.0046e-5);
+  
+  Tauc=1/15;
+  
+  C1s=tf([Tauc 1],1);
+  C2s=tf([Tauc 1],1);
+  C3s=tf([Tauc 1],1);
+  
+  Gba1=C1s*G1s;
+  bode(Gba1);grid;
+  Gba2=C2s*G2s;
+  bode(Gba2);grid;
+  Gba3=C3s*G3s;
+  bode(Gba3);grid;
+
+  K1 = 4.8417e+04;
+  K2 = 6.0954e+04;
+  K2 = 6.9984e+03;
+  
+  C1s=K1*tf([Tauc 1],1);
+  C2s=K2*tf([Tauc 1],1);
+  C3s=K3*tf([Tauc 1],1);
+  
+  Td1=Tauc;  
+  Td2=Tauc;
+  Td3=Tauc;
+  Kp1=K1*Tauc;
+  Kp2=K2*Tauc;
+  Kp3=K3*Tauc;
+  
