@@ -28,6 +28,7 @@ qd=[qd1;qd2;qd3];
 persistent Int_err;
 persistent numf;
 persistent denf;
+persistent qd_past;
 Tm=0.001;
 IMax=1000;
 IMin=-1000;
@@ -35,11 +36,13 @@ IMin=-1000;
 %Nos aseguramos de que el error se inicializa cada vez que simulo
 if(tiempo<1e-5)
     Int_err=[0;0;0];
-    [numf,denf]=butter(2,(2*pi*50)/(pi/Tm),'low');
+     [numf,denf]=butter(2,(2*pi*60)/(pi/Tm),'low');
+     qd_past=zeros(10,3);
 end
 
-qd=filter(denf,numf,qd);
-
+for i=1:3
+ qd=filter(numf,denf,qd_past(:,i);
+end
 
 
 %CONTROLADORES
