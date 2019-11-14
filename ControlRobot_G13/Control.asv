@@ -35,10 +35,10 @@ IMin=-1000;
 %Nos aseguramos de que el error se inicializa cada vez que simulo
 if(tiempo<1e-5)
     Int_err=[0;0;0];
-%     [numf,denf]=butter(2,(2*pi*60)/(pi/Tm),'low');
+    [numf,denf]=butter(2,(2*pi*50)/(pi/Tm),'low');
 end
 
-% qd=filter(numf,denf,qd_aux);
+qd=filter(denf,numf,qd);
 
 
 
