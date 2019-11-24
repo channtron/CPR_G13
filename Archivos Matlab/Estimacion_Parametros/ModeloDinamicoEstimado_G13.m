@@ -12,12 +12,27 @@ Im2      = in(8);
 Im3      = in(9);
 
 % Factores de reducción
-  % R1=50; R2=30; R3=15;
+%   R1=50; R2=30; R3=15;
   R1=1; R2=1; R3=1; %Accionamiento directo
   
 % K
   K=diag([0.5,0.4,0.35]); %(N*m/A)
   g=9.81;
+  
+%CON ACCIONAMIENTO INDIRECTO R=PAPAPA
+%   M =[2.0808*cos(2.0*q2 + q3) + 2.7549*cos(2.0*q2) + 2.0808*cos(q3) + 0.61697*cos(2.0*q2 + 2.0*q3) + 29.839,                       0,                       0;
+%     0, 4.1616*cos(q3) + 48.364, 2.0808*cos(q3) + 1.2355;
+%     0, 2.0808*cos(q3) + 1.2355,  0.024385*R3^2 + 1.2355];
+%  
+%  
+% V =[-6.9389e-21*qd1*(- 1.7294e18*R1^2 + 5.9976e20*qd2*sin(2.0*q2 + q3) + 2.9988e20*qd3*sin(2.0*q2 + q3) + 7.9405e20*qd2*sin(2.0*q2) + 2.9988e20*qd3*sin(q3) + 1.7783e20*qd2*sin(2.0*q2 + 2.0*q3) + 1.7783e20*qd3*sin(2.0*q2 + 2.0*q3));
+%     0.61697*qd1^2*sin(2.0*q2 + 2.0*q3) - 2.0808*qd3^2*sin(q3) + 0.0085*R2^2*qd2 + 2.0808*qd1^2*sin(2.0*q2 + q3) + 2.7549*qd1^2*sin(2.0*q2) - 4.1616*qd2*qd3*sin(q3);
+%     1.0404*qd1^2*sin(q3) + 2.0808*qd2^2*sin(q3) + 0.61697*qd1^2*sin(2.0*q2 + 2.0*q3) + 0.015*R3^2*qd3 + 1.0404*qd1^2*sin(2.0*q2 + q3)];
+%  
+%  
+% G =[0;
+%  g*(2.0808*cos(q2 + q3) + 6.3812*cos(q2));
+%                     2.0808*g*cos(q2 + q3)];
 
 %CON ACCIONAMIENTO DIRECTO R=1
 % Matriz de Inercias

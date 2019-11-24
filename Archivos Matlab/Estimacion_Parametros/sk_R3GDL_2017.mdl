@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.61"
+    ComputedModelVersion    "1.62"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -47,7 +47,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [28.0, 42.0, 1382.0, 744.0]
+      Location		      [-7.0, -7.0, 1550.0, 838.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -71,9 +71,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1665.0, 715.0]
+	Extents			[1875.0, 833.0]
 	ZoomFactor		[0.8]
-	Offset			[-481.0, 56.639518692314653]
+	Offset			[-561.20000000000016, -93.760481307685268]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -93,7 +93,7 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAAAAA9AAAAB4AP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAANAD///8AAAauAAADEAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAANAD///8AAAeAAAADhgAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAACR/////wAAAAAAAAAA/////wEAAAEE/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAGV/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAPG/////wAAAAAAAAAA/"
@@ -107,9 +107,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "rafap"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Nov 24 10:31:53 2019"
-  RTWModifiedTimeStamp	  496492310
-  ModelVersionFormat	  "1.%<AutoIncrement:61>"
+  LastModifiedDate	  "Sun Nov 24 16:07:59 2019"
+  RTWModifiedTimeStamp	  496510911
+  ModelVersionFormat	  "1.%<AutoIncrement:62>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1177,7 +1177,7 @@ Model {
   }
   System {
     Name		    "sk_R3GDL_2017"
-    Location		    [28, 42, 1410, 786]
+    Location		    [-7, -7, 1543, 831]
     Open		    on
     PortBlocksUseCompactNotation off
     SetDomainSpec	    off
@@ -1194,7 +1194,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "113"
+    SIDHighWatermark	    "125"
     Block {
       BlockType		      Clock
       Name		      "Clock"
@@ -1504,16 +1504,15 @@ Model {
       Name		      "Robot"
       SID		      "87"
       Ports		      [1, 3]
-      Position		      [275, 556, 400, 704]
+      Position		      [220, 456, 345, 604]
       ZOrder		      335
       BackgroundColor	      "red"
-      Commented		      "on"
       FontName		      "Arial Narrow"
       FontSize		      14
       RequestExecContextInheritance off
       System {
 	Name			"Robot"
-	Location		[-8, -8, 1374, 736]
+	Location		[-7, -7, 1543, 831]
 	Open			off
 	PortBlocksUseCompactNotation off
 	SetDomainSpec		off
@@ -1545,7 +1544,7 @@ Model {
 	  Position		  [140, 74, 210, 116]
 	  ZOrder		  -2
 	  BackgroundColor	  "red"
-	  MATLABFcn		  "ModeloDinamico_R3GDL"
+	  MATLABFcn		  "ModeloDinamicoEstimadoRuido_G13"
 	}
 	Block {
 	  BlockType		  Integrator
@@ -1901,8 +1900,8 @@ Model {
       SID		      "31"
       Position		      [555, 434, 585, 466]
       ZOrder		      12
-      Minimum		      "-0.005"
-      Maximum		      "0.005"
+      Minimum		      "-0.5"
+      Maximum		      "0.5"
       SampleTime	      "Tm"
     }
     Block {
@@ -2006,12 +2005,24 @@ Model {
       Name		      "q8"
       SID		      "96"
       Ports		      [1]
-      Position		      [470, 565, 530, 595]
+      Position		      [415, 465, 475, 495]
       ZOrder		      336
       BackgroundColor	      "cyan"
       VariableName	      "qr"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "q9"
+      SID		      "123"
+      Ports		      [1]
+      Position		      [480, 490, 540, 520]
+      ZOrder		      343
+      BackgroundColor	      "cyan"
+      VariableName	      "qrs"
+      MaxDataPoints	      "inf"
+      SampleTime	      "Tm"
     }
     Block {
       BlockType		      ToWorkspace
@@ -2042,12 +2053,24 @@ Model {
       Name		      "qd2"
       SID		      "97"
       Ports		      [1]
-      Position		      [470, 615, 530, 645]
+      Position		      [415, 515, 475, 545]
       ZOrder		      337
       BackgroundColor	      "cyan"
       VariableName	      "qdr"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "qd3"
+      SID		      "124"
+      Ports		      [1]
+      Position		      [480, 540, 540, 570]
+      ZOrder		      344
+      BackgroundColor	      "cyan"
+      VariableName	      "qdrs"
+      MaxDataPoints	      "inf"
+      SampleTime	      "Tm"
     }
     Block {
       BlockType		      ToWorkspace
@@ -2078,12 +2101,24 @@ Model {
       Name		      "qdd2"
       SID		      "98"
       Ports		      [1]
-      Position		      [470, 665, 530, 695]
+      Position		      [415, 565, 475, 595]
       ZOrder		      338
       BackgroundColor	      "cyan"
       VariableName	      "qddr"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "qdd3"
+      SID		      "125"
+      Ports		      [1]
+      Position		      [480, 590, 540, 620]
+      ZOrder		      345
+      BackgroundColor	      "cyan"
+      VariableName	      "qddrs"
+      MaxDataPoints	      "inf"
+      SampleTime	      "Tm"
     }
     Block {
       BlockType		      ToWorkspace
@@ -2133,7 +2168,7 @@ Model {
       Points		      [14, 0]
       Branch {
 	ZOrder			147
-	Points			[0, 370]
+	Points			[0, 270]
 	DstBlock		"Robot"
 	DstPort			1
       }
@@ -2407,22 +2442,52 @@ Model {
       ZOrder		      142
       SrcBlock		      "Robot"
       SrcPort		      3
-      DstBlock		      "qdd2"
-      DstPort		      1
+      Points		      [38, 0]
+      Branch {
+	ZOrder			262
+	Points			[0, 41; 77, 0]
+	DstBlock		"qdd3"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			261
+	DstBlock		"qdd2"
+	DstPort			1
+      }
     }
     Line {
       ZOrder		      143
       SrcBlock		      "Robot"
       SrcPort		      1
-      DstBlock		      "q8"
-      DstPort		      1
+      Points		      [41, 0]
+      Branch {
+	ZOrder			258
+	Points			[0, 25]
+	DstBlock		"q9"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			257
+	DstBlock		"q8"
+	DstPort			1
+      }
     }
     Line {
       ZOrder		      144
       SrcBlock		      "Robot"
       SrcPort		      2
-      DstBlock		      "qd2"
-      DstPort		      1
+      Points		      [41, 0]
+      Branch {
+	ZOrder			260
+	Points			[0, 25]
+	DstBlock		"qd3"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			259
+	DstBlock		"qd2"
+	DstPort			1
+      }
     }
     Line {
       ZOrder		      32
