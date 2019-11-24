@@ -1,4 +1,5 @@
 %% Estimación de parámetros
+% Se escogen las medidas ideales sin ruido ni muestreo
 clear all;
 % syms T1 T2 T3 q1 qd1 qdd1 q2 qd2 qdd2 q3 qd3 qdd3 real
 % PI = sym('pi');
@@ -9,8 +10,8 @@ A11=0.5; A12=.5; F11=5; F12=3; Ph11=0.5; Ph12=0;
 
 sim('sk_R3GDL_2017');
 % Factores de reducción
-  R1=50; R2=30; R3=15;
-  %R1=1; R2=1; R3=1; %Accionamiento directo
+ % R1=50; R2=30; R3=15;
+  R1=1; R2=1; R3=1; %Accionamiento directo
  
 % K
   K=diag([0.5,0.4,0.35]); %(N*m/A)
@@ -48,18 +49,18 @@ var=sqrt(diag(csig));
 fprintf('El error al estimar los parametros en porcentaje es: \n');
 est_err=(100*(var./theta))'
 
+%Para el accionamiento directo, los errores de estimación son:
+% est_err =
+%      1.0e-11 *
+%      [-0.0507    
+%        0.2712    
+%        0.0234    
+%        0.0230    
+%        0.0309    
+%        0.6000    
+%        0.0238    
+%        0.0239    
+%        0.3305    
+%        0.0300    
+%        0.1524]
 
-
-%falseando nuestros parametros añadiendo un 10% al valor ideal de theta
-% 
-%   -0.000112346559729
-%   -0.000000141396431
-%   -0.489990934962452
-%   -0.064220909758975
-%   -0.005457026617879
-%   -0.000000895594600
-%   -0.261537349697802
-%   -0.010759516556250
-%   -0.000207721894012
-%    0.000013093427802
-%    0.000008895743794
