@@ -86,7 +86,7 @@ Ga = [ 0;
   Kp3=K3*Ti3;
   
   %%
-  %PI linealizando solo la M
+  %PD linealizando solo la M
   G1s=tf(Tau(1),[10.8215 0 0]);
   G2s=tf(Tau(2),[10.8467 0 0]);
   G3s=tf(Tau(3),[1.0899  0 0]);
@@ -161,7 +161,7 @@ Ga = [ 0;
   %%
   %PID PAR CALCULADO (LINEALIZAMOS TODO)
   
-  G1s=tf(Tau(1),[1 0 0]);
+
   G2s=tf(Tau(2),[1 0 0]);
   G3s=tf(Tau(3),[1 0 0]);
 

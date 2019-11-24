@@ -48,9 +48,9 @@ R1=1; R2=1; R3=1;
 g=9.81;
 %Definimos las constantes Kp Ki Kd
 %PD Sin Precompensar (hecho pero sale meh)
-Kp=1.0e3*[1.2986;1.627;0.18684];
-Ti=[0;0;0];
-Td=[ 0.0667; 0.0667; 0.0667];
+% Kp=1.0e3*[1.2986;1.627;0.18684];
+% Ti=[0;0;0];
+% Td=[ 0.0667; 0.0667; 0.0667];
 
 %PD Precompensando V y G (igual que sin precompensar)
 % Kp=1.0e3*[1.298;1.627;0.18684];
@@ -73,9 +73,9 @@ Td=[ 0.0667; 0.0667; 0.0667];
 % Td=[0.05;0.05;0.05];
 
 %PID por par calculado (listo c:)
-% Kp=[2700;3375;3857.2];
-% Ti=[0.2;0.2;0.2];
-% Td=[0.05;0.05;0.05];
+Kp=[2700;3375;3857.2];
+Ti=[0.2;0.2;0.2];
+Td=[0.05;0.05;0.05];
 
 %PD por diseño en frecuencia
 % Kp=[3.2278e+03;4665.600;1868.400];
@@ -91,10 +91,10 @@ Err_qd=qdr-qd;
 Int_err=Int_err+Tm*Err_q;
 
 %PID
-% U=Kp.*Err_q + Kp.*Td.*Err_qd + Kp./Ti.*Int_err;
+U=Kp.*Err_q + Kp.*Td.*Err_qd + Kp./Ti.*Int_err;
 
 %PD
-U=Kp.*Err_q + Kp.*Td.*Err_qd;
+% U=Kp.*Err_q + Kp.*Td.*Err_qd;
 
 
 
@@ -113,9 +113,9 @@ Ga = [ 0;
 	1.9283*g*cos(q2 + q3)];
 
 % I=U;    %Sin precompensar nada
-I=U+Ga; %Precompensando la gravedad
+% I=U+Ga; %Precompensando la gravedad
 % I=U+Va+Ga; %Precompensando Va y Ga
-% I=Va+Ga+Ma*(U+qddr); %Precompensando todo
+I=Va+Ga+Ma*(U+qddr); %Precompensando todo
 
 % Saturacion de las intensidades y antiwindup 
 if I(1)>IMax
