@@ -1,4 +1,4 @@
-function [I] = ControlDinamico(in)
+function [I] = Control(in)
 %Esta funcion implementa un controlador, tanto continuo como discreto
 %   Detailed explanation goes here
 qr1        = in(1);
@@ -7,15 +7,15 @@ qr3        = in(3);
 qdr1       = in(4);
 qdr2       = in(5);
 qdr3       = in(6);
-q1         = in(7);
-q2         = in(8);
-q3         = in(9);
-qd1        = in(10);
-qd2        = in(11);
-qd3        = in(12);
-qddr1      = in(13);
-qddr2      = in(14);
-qddr3      = in(15);
+qddr1      = in(7);
+qddr2      = in(8);
+qddr3      = in(9);
+q1         = in(10);
+q2         = in(11);
+q3         = in(12);
+qd1        = in(13);
+qd2        = in(14);
+qd3        = in(15);
 tiempo     = in(16);
 
 qr=[qr1;qr2;qr3];
@@ -26,34 +26,41 @@ qd=[qd1;qd2;qd3];
 
 %Definimos Variables Estáticas y tiempo de muestreo
 persistent Int_err;
+persistent numf;
+persistent denf;
 Tm=0.001;
-IMax=300;
-IMin=-300;
+IMax=1000;
+IMin=-1000;
 
 %Nos aseguramos de que el error se inicializa cada vez que simulo
 if(tiempo<1e-5)
     Int_err=[0;0;0];
+%     [numf,denf]=butter(2,(2*pi*60)/(pi/Tm),'low');
 end
+
+% qd=filter(numf,denf,qd_aux);
+
+
 
 %CONTROLADORES
 %------------------------------------------------------------------------
 R1=1; R2=1; R3=1; 
 g=9.81;
 %Definimos las constantes Kp Ki Kd
-%PD Sin Precompensar (hecho pero sale caca)
+%PD Sin Precompensar (hecho pero sale meh)
 % Kp=1.0e3*[1.2986;1.627;0.18684];
 % Ti=[0;0;0];
 % Td=[ 0.0667; 0.0667; 0.0667];
 
 %PD Precompensando V y G (igual que sin precompensar)
-Kp=1.0e3*[1.298;1.627;0.18684];
-Ti=[0;0;0];
-Td=[0.0667;0.0667;0.0667];
+% Kp=1.0e3*[1.298;1.627;0.18684];
+% Ti=[0;0;0];
+% Td=[0.0667;0.0667;0.0667];
 
 %PD por par calculado (este es el unico PD que funciona bien de verdad)
-% Kp=[1350;1687.5;1928.6];
-% Ti=[0;0;0];
-% Td=[0.1;0.1;0.1];
+Kp=[1350;1687.5;1928.6];
+Ti=[0;0;0];
+Td=[0.1;0.1;0.1];
 
 %PID Sin Precompensar (hecho y sale guay)
 % Kp=[29218;36608;4203.8];
@@ -107,8 +114,8 @@ Ga = [ 0;
 
 % I=U;    %Sin precompensar nada
 % I=U+Ga; %Precompensando la gravedad
-I=U+Va+Ga; %Precompensando Va y Ga
-% I=Va+Ga+Ma*(U+qddr); %Precompensando todo
+% I=U+Va+Ga; %Precompensando Va y Ga
+I=Va+Ga+Ma*(U+qddr); %Precompensando todo
 
 % Saturacion de las intensidades y antiwindup 
 if I(1)>IMax
@@ -134,5 +141,4 @@ elseif I(3)<IMin
     I(3)=IMin;
     Int_err(3)=Int_err(3)-Tm*Err_q(3);
 end
-
 end
